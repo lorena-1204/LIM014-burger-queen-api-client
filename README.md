@@ -380,8 +380,6 @@ para mantener actualizado el menú.
 ***
 
 ## 6. Pistas / Tips
-
-
 ***
 
 ### :information_source: Nota para estudiantes que elijan React y `create-react-app`
