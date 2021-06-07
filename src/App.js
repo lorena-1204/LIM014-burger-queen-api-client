@@ -20,43 +20,34 @@ import Nosotros from './components/nosotros';
 function App() {
   return (
     <Router>
-      <div className ="container">
-        <div className ="btn-group">
-          <Link to ="/" className="btn btn-dark"> 
-          Inicio
+      <div>
+        <div>
+          <Link to ="/" >
+            Inicio
           </Link>
-
           <Link to="/nosotros" className="">
-           Nosotros
+            Nosotros
           </Link>
-
-          <Link to="/contacto" className="btn btn-dark">
+          <Link to="/contacto" >
             Contacto
           </Link>
         </div>
-       <h1> hi ... </h1>
-       <hr/>
+         <h1> hi... </h1>
+         <hr />
 
-       <Switch>
-       
+        <Switch>
+        <Route path="/" exact>
+            <Inicio />
+        </Route>
         <Route path="/contacto">
           <Contacto />
         </Route>
-
         <Route path="/nosotros">
           <Nosotros />
         </Route>
-
-        <Route path="/">
-            <Inicio />
-          
-        </Route>
-         
-       </Switch>
-
-     </div>
+        </Switch>
+      </div>
     </Router>
-    
   );
 }
 
