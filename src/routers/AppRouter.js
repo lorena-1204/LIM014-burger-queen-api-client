@@ -32,6 +32,7 @@ function AppRouter(){
                <Route exact path="/cocina" component={Cocina} />
                <Route exact path="/administrador" component={Administrador} />
                <Route exact path="*" component={NotFound} />
+
                 {/* <Route path="/administrador">
                     <Administrador/>
                 </Route> */}
