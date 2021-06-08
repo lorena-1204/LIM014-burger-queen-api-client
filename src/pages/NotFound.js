@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Nosotros= () => {
+const NotFound= () => {
     return (
         <div>
-            <h1>Nosotros</h1>
+            <h1>NotFound</h1>
         </div>
     )
 }
 
-export default Nosotros
+export default NotFound
