@@ -20,6 +20,24 @@ const Navbar = () => {
                 <li>
                     <Link exact to="/administrador"> Administrador</Link>
                 </li>
+
+                <li>
+                    <Link exact to="/categories"> Categorias</Link>
+                </li>
+
+                <li>
+                    <Link exact to="/login"> Login</Link>
+                </li>
+                <li>
+                    <Link exact to="/register"> Register </Link>
+                </li>
+                <li>
+                    <Link exact to="/dashboard"> Dashboard</Link>
+                </li>
+                <li>
+                    <Link exact to="/payments"> Payments</Link>
+                </li>
+
             </ul>
         </nav>
     )
