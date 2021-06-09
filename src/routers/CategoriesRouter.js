@@ -33,7 +33,7 @@ export default function CategoriesRouter() {
                 </li>
             </ul>
             <Switch>
-                <Route exact path="/categories" component={CategoriesPage} />
+                <PrivateRoute exact path="/categories" component={CategoriesPage} />
                 <PrivateRoute path="/categories/mesero" component={MeseroRouter} />
 
                 <Route exact path="/categories/cocina">
@@ -67,7 +67,7 @@ function MeseroRouter() {
             </ul>
             <Switch>
                 <Route exact path={`${url}`}>
-                    <h3>home</h3>
+                    <h3>Home</h3>
                 </Route>
                 <Route exact path={`${url}/status`}>
                     <h3>Status</h3>
