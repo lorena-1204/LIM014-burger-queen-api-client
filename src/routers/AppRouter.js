@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     BrowserRouter as Router,
-    // Redirect,
+    Redirect,
     Switch,
     Route,
 } from "react-router-dom";
@@ -45,10 +45,14 @@ function AppRouter(){
 
                 <Route exact path="/profile/:username" component={ProfilePage} />
                 <Route exact path="/categories" component={Categories} />
+                
 
-
+                <Route exact path="/signgin" component={Login}>
+                    <Redirect to="/login" />
+                    </Route> 
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
+                
                 {/* Crear un componente particular basado en la ruta - pero que sea para rutas privadas ⬇ */}
                 <PrivateRoute exact path="/dashboard" component={Dashboard} /> 
                 {/* ´contiene 3 atributos ⬆ */}
