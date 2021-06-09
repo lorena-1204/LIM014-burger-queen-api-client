@@ -10,6 +10,7 @@ const Navbar = () => {
     return (
         <nav>
             <ul>
+                {/* Para restringir ⬇ rutas, si el usuario no  esta logeado se muestra lossiguientes elmentos*/}
                
                 {!auth.isLogged() && (
                     <>
@@ -27,7 +28,7 @@ const Navbar = () => {
                         Categories
                      </NavLink>
                 </li>
-
+                {/* Para restringir ⬇ rutas, si el usuario esta logeado se muestra los elmentos:*/}
                 {auth.isLogged() && (
                     <>
                         <li>
