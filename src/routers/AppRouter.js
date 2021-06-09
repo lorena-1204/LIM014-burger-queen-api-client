@@ -1,16 +1,20 @@
-import React from 'react';
 import {
     BrowserRouter as Router,
-    Switch,
+    Redirect,
     Route,
+    Switch,
 } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
+import DashboardPage from "../pages/DashboardPage";
 
-import Navbar from '../components/Navbar';
-import Inicio from '../pages/inicio';
-import Mesero from '../pages/mesero';
-import Cocina from '../pages/cocina';
-import Administrador from '../pages/administrador';
-import NotFound from '../pages/NotFound';
+import LoginPage from "../pages/LoginPage";
+import NotFoundPage from "../pages/NotFoundPage";
+import PaymentsPage from "../pages/PaymentsPage";
+import ProfilePage from "../pages/ProfilePage";
+
+import CategoriesRouter from "./CategoriesRouter";
 
 /* Approuter-> se va a encargar de renderizar los componentes de una pagina de acuerdo a la url que solicite el usuario
    Route ->llamar a los componentes y se define las rutas de la aplicación.
@@ -23,21 +27,32 @@ import NotFound from '../pages/NotFound';
  */
 
 function AppRouter(){
-    return(
-       <Router>
+    return (
+        <Router>
             <Navbar />
-           <Switch>
-               <Route exact path="/" component={Inicio} />
-               <Route exact path="/mesero" component={Mesero}/>
-               <Route exact path="/cocina" component={Cocina} />
-               <Route exact path="/administrador" component={Administrador} />
-               <Route exact path="*" component={NotFound} />
+            <Switch>
+                <PublicRoute exact path="/" component={LoginPage} />
+                
 
-                {/* <Route path="/administrador">
-                    <Administrador/>
-                </Route> */}
-           </Switch>
-       </Router>
+                <Route exact path="/profile/:username" component={ProfilePage} />
+
+                <Route path="/categories" component={CategoriesRouter} />
+
+                <Route exact path="/signin">
+                    <Redirect to="/" />
+                </Route>
+
+
+                <PrivateRoute exact path="/dashboard" component={DashboardPage} />
+
+                <PrivateRoute exact path="/payments" component={PaymentsPage} />
+
+                <Route path="/404" component={NotFoundPage} />
+                <Route path="*">
+                    <Redirect to="/404" />
+                </Route>
+            </Switch>
+        </Router>
     );
 }
 
