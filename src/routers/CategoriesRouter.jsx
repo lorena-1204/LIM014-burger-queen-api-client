@@ -9,6 +9,7 @@ import {
 import CategoriesPage from "../pages/CategoriesPage";
 import PrivateRoute from "./PrivateRoute";
 
+
 export default function CategoriesRouter() {
     const { url } = useRouteMatch();
 
