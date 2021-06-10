@@ -11,6 +11,8 @@ import Mesero from '../pages/mesero';
 import Cocina from '../pages/cocina';
 import Administrador from '../pages/administrador';
 import NotFound from '../pages/NotFound';
+import ProfilePage from '../pages/ProfilePages';
+import CategoriesPage from '../pages/categoriesPages';
 
 /* Approuter-> se va a encargar de renderizar los componentes de una pagina de acuerdo a la url que solicite el usuario
    Route ->llamar a los componentes y se define las rutas de la aplicación.
@@ -31,6 +33,10 @@ function AppRouter(){
                <Route exact path="/mesero" component={Mesero}/>
                <Route exact path="/cocina" component={Cocina} />
                <Route exact path="/administrador" component={Administrador} />
+
+               <Route exact path="/profile/:username" component={ProfilePage} />
+               <Route exact path="/categories" component={CategoriesPage} />
+
                <Route exact path="*" component={NotFound} />
                 {/* <Route path="/administrador">
                     <Administrador/>
