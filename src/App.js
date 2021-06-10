@@ -1,15 +1,12 @@
-import React from 'react';
-import AuthProvider from './auth/authProvider';
-import AppRouter from './routers/AppRouter';
+import AuthProvider from "./auth/AuthProvider";
+import AppRouter from "./routers/AppRouter";
 
 function App() {
   return (
     <div>
-       <AppRouter/> 
-         
-         <AuthProvider>
-
-       </AuthProvider>
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
     </div>
   );
 }
