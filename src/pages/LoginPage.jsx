@@ -15,11 +15,16 @@ export default function LoginPage() {
     }
 
     return (
-        <div>
-            <h1>LoginPage</h1>
-            <button onClick={handleLogin}>
-                Iniciar Sesión
-            </button>
-        </div>
+        <section>
+            <h1>Burguer Queen</h1>
+            <form>
+                <input type="email" placeholder='Usuario'></input> 
+                <input type="password" placeholder='************'></input>
+                <button onClick={handleLogin}>
+                    Iniciar Sesión
+                </button>
+            </form>
+         
+        </section>
     )
 }

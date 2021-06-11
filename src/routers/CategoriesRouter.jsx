@@ -1,4 +1,3 @@
-
 import { Link,NavLink,Switch,Route,Redirect,useRouteMatch } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 
@@ -77,11 +76,8 @@ function MeseroRouter() {
             </ul>
             <Switch>
                 <Route exact path={`${url}`} component={Home}/>
-
                 <Route exact path={`${url}/status`} component={Status}/>
-                  
                 <Route exact path={`${url}/historial`} component={HistorialMesero}/>
-                 
                 <Route path="*">
                     <Redirect to="/404" />
                 </Route>
@@ -92,7 +88,6 @@ function MeseroRouter() {
 
 function CocinaRouter() {
     const { url } = useRouteMatch();
-
     return (
         <div>
             <ul>
@@ -105,9 +100,7 @@ function CocinaRouter() {
             </ul>
             <Switch>
                 <Route exact path={`${url}`} component={Proceso} />
-
                 <Route exact path={`${url}/historial`} component={HistorialCocina} />
-
                 <Route path="*">
                     <Redirect to="/404" />
                 </Route>
@@ -131,9 +124,7 @@ function AdministradorRouter() {
             </ul>
             <Switch>
                 <Route exact path={`${url}`} component={Menu}/>
-
                 <Route exact path={`${url}/trabajadores`} component={Trabajadores}/>
-
                 <Route path="*">
                     <Redirect to="/404" />
                 </Route>
