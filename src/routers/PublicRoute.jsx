@@ -11,7 +11,7 @@ export default function PublicRoute({ component: Component, ...rest }) {
             {!auth.isLogged() ? (
                 <Component />
             ) : (
-                <Redirect to="/dashboard" />
+                    <Redirect to="/categories" />
             )}
         </Route>
     );

@@ -5,16 +5,11 @@ import {
     Switch,
 } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import DashboardPage from "../pages/DashboardPage";
 import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import PaymentsPage from "../pages/PaymentsPage";
 import ProfilePage from "../pages/ProfilePage";
 import CategoriesRouter from "./CategoriesRouter";
-import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
-
-
 
 /* Approuter-> se va a encargar de renderizar los componentes de una pagina de acuerdo a la url que solicite el usuario
    Route ->llamar a los componentes y se define las rutas de la aplicación.
@@ -42,11 +37,6 @@ function AppRouter(){
                 <Route exact path="/signin">
                     <Redirect to="/" />
                 </Route>
-
-
-                <PrivateRoute exact path="/dashboard" component={DashboardPage} />
-
-                <PrivateRoute exact path="/payments" component={PaymentsPage} />
 
                 <Route path="/404" component={NotFoundPage} />
                 <Route path="*">
