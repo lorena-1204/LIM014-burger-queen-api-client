@@ -32,11 +32,12 @@ function AppRouter(){
             <Navbar />
             <Switch>
                 <PublicRoute exact path="/" component={LoginPage} />
-                
-
                 <Route exact path="/profile/:username" component={ProfilePage} />
 
                 <Route path="/categories" component={CategoriesRouter} />
+                {/* <Route path="/administrador">
+                    <Administrador/>
+                </Route> */}
 
                 <Route exact path="/signin">
                     <Redirect to="/" />
