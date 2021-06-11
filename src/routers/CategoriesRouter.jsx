@@ -7,7 +7,12 @@ import {
     useRouteMatch,
 } from "react-router-dom";
 import CategoriesPage from "../pages/CategoriesPage";
+import Historial from "../pages/mesero/historial";
+import Home from "../pages/mesero/home";
+import Status from "../pages/mesero/status";
 import PrivateRoute from "./PrivateRoute";
+
+
 
 export default function CategoriesRouter() {
     const { url } = useRouteMatch();
@@ -66,15 +71,12 @@ function MeseroRouter() {
                 </li>
             </ul>
             <Switch>
-                <Route exact path={`${url}`}>
-                    <h3>Home</h3>
-                </Route>
-                <Route exact path={`${url}/status`}>
-                    <h3>Status</h3>
-                </Route>
-                <Route exact path={`${url}/historial`}>
-                    <h3>Historial</h3>
-                </Route>
+                <Route exact path={`${url}`} component={Home}/>
+
+                <Route exact path={`${url}/status`} component={Status}/>
+                  
+                <Route exact path={`${url}/historial`} component={Historial}/>
+                 
                 <Route path="*">
                     <Redirect to="/404" />
                 </Route>
