@@ -1,4 +1,8 @@
+
 import { Link,NavLink,Switch,Route,Redirect,useRouteMatch } from "react-router-dom";
+
+import Menu from "../pages/administrador/menu";
+import Trabajadores from "../pages/administrador/trabajadores";
 import CategoriesPage from "../pages/CategoriesPage";
 import HistorialCocina from "../pages/cocina/historialCocina";
 import Proceso from "../pages/cocina/proceso";
@@ -9,7 +13,6 @@ import PrivateRoute from "./PrivateRoute";
 
 export default function CategoriesRouter() {
     const { url } = useRouteMatch();
-
     return (
         <div>
             <ul>
@@ -34,12 +37,15 @@ export default function CategoriesRouter() {
                 <PrivateRoute exact path="/categories" component={CategoriesPage} />
                 <PrivateRoute path="/categories/mesero" component={MeseroRouter} />
                 <PrivateRoute path="/categories/cocina" component={CocinaRouter} />
+                <PrivateRoute path="/categories/administrador" component={AdministradorRouter} />
 
                 <Route exact path="/categories/cocina">
                     <h1>Puesto: Cocinero</h1>
                 </Route>
             
-
+                <Route exact path="/categories/administrador">
+                    <h1>Puesto: Administrador</h1>
+                </Route>
                 <Route path="*">
                     <Redirect to="/404" />
                 </Route>
@@ -50,7 +56,6 @@ export default function CategoriesRouter() {
 
 function MeseroRouter() {
     const { url } = useRouteMatch();
-
     return (
         <div>
             <ul>
@@ -96,6 +101,32 @@ function CocinaRouter() {
                 <Route exact path={`${url}`} component={Proceso} />
 
                 <Route exact path={`${url}/historial`} component={HistorialCocina} />
+
+                <Route path="*">
+                    <Redirect to="/404" />
+                </Route>
+            </Switch>
+        </div>
+    );
+}
+
+function AdministradorRouter() {
+    const { url } = useRouteMatch();
+
+    return (
+        <div>
+            <ul>
+                <li>
+            <Link to="/categories/administrador">Menu</Link>
+                </li>
+                <li>
+                    <Link to="/categories/administrador/trabajadores">Trabajadores</Link>
+                </li>
+            </ul>
+            <Switch>
+                <Route exact path={`${url}`} component={Menu}/>
+
+                <Route exact path={`${url}/trabajadores`} component={Trabajadores}/>
 
                 <Route path="*">
                     <Redirect to="/404" />
