@@ -4,17 +4,16 @@ import {
     Route,
     Switch,
 } from "react-router-dom";
+
 import Navbar from "../components/Navbar";
-import DashboardPage from "../pages/DashboardPage";
 import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import PaymentsPage from "../pages/PaymentsPage";
-import ProfilePage from "../pages/ProfilePage";
-import CategoriesRouter from "./CategoriesRouter";
-import PrivateRoute from "./PrivateRoute";
+
 import PublicRoute from "./PublicRoute";
-
-
+import PrivateRoute from "./PrivateRoute";
+import MeseroRouter from "./MeseroRouter";
+import CocinaRouter from "./CocinaRouter";
+import AdministradorRouter from "./AdminRouter";
 
 /* Approuter-> se va a encargar de renderizar los componentes de una pagina de acuerdo a la url que solicite el usuario
    Route ->llamar a los componentes y se define las rutas de la aplicación.
@@ -32,20 +31,17 @@ function AppRouter(){
             <Navbar />
             <Switch>
                 <PublicRoute exact path="/" component={LoginPage} />
+
+                <PrivateRoute path="/mesero" component={MeseroRouter} />
+                <PrivateRoute path="/cocina" component={CocinaRouter} />
+                <PrivateRoute path="/administrador" component={AdministradorRouter} />
                 
-
-                <Route exact path="/profile/:username" component={ProfilePage} />
-
-                <Route path="/categories" component={CategoriesRouter} />
-
+                {/* <Route path="/administrador">
+                    <Administrador/>
+                </Route> */}
                 <Route exact path="/signin">
                     <Redirect to="/" />
                 </Route>
-
-
-                <PrivateRoute exact path="/dashboard" component={DashboardPage} />
-
-                <PrivateRoute exact path="/payments" component={PaymentsPage} />
 
                 <Route path="/404" component={NotFoundPage} />
                 <Route path="*">
