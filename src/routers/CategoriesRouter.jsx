@@ -1,5 +1,6 @@
 
 import { Link,NavLink,Switch,Route,Redirect,useRouteMatch } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
 
 import Menu from "../pages/administrador/menu";
 import Trabajadores from "../pages/administrador/trabajadores";
@@ -9,7 +10,6 @@ import Proceso from "../pages/cocina/proceso";
 import HistorialMesero from "../pages/mesero/historialMesero";
 import Home from "../pages/mesero/home";
 import Status from "../pages/mesero/status";
-import PrivateRoute from "./PrivateRoute";
 
 export default function CategoriesRouter() {
     const { url } = useRouteMatch();
@@ -19,6 +19,12 @@ export default function CategoriesRouter() {
                 <li>
                     {/* url=categories, administrador = categorias  */}
                     <NavLink exact to={`${url}`} activeClassName="active">
+                        hi
+                    </NavLink>
+                </li>
+                <li>
+                    {/* url=categories, administrador = categorias  */}
+                    <NavLink exact to={`${url}/administrador`} activeClassName="active">
                         Administrador
                     </NavLink>
                 </li>

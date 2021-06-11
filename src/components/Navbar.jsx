@@ -32,16 +32,7 @@ const Navbar = () => {
                 {/* Para restringir ⬇ rutas, si el usuario esta logeado se muestra los elmentos:*/}
                 {auth.isLogged() && (
                     <>
-                        <li>
-                            <NavLink exact to="/dashboard" activeClassName="active">
-                                Dashboard
-                             </NavLink>
-                        </li>
-                        <li>
-                            <NavLink exact to="/payments" activeClassName="active">
-                                Payments
-                             </NavLink>
-                        </li>
+                       
                         <li>
                             <button onClick={auth.logout}>Cerrar Sesión</button>
                         </li>
