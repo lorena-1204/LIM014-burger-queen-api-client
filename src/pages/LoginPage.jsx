@@ -4,13 +4,13 @@ import useAuth from '../auth/useAuth';
 export default function LoginPage() {
     const history = useHistory();
     const location = useLocation();
-    /*➡trae la información del url⬆ */
+    /*➡trae la información del url⬆ u mps ayuda a almacenar el location de la ruta anterior*/
     const previusObjectURL = location.state?.from;
 
     const auth = useAuth();
     const handleLogin = () => {
         auth.login();
-        history.push(previusObjectURL || "/categories")
+        history.push(previusObjectURL || "/mesero")
         // se envia ala url anterior⬆
     }
 
