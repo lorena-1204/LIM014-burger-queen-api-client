@@ -11,8 +11,6 @@ import ProfilePage from "../pages/ProfilePage";
 import CategoriesRouter from "./CategoriesRouter";
 import PublicRoute from "./PublicRoute";
 
-
-
 /* Approuter-> se va a encargar de renderizar los componentes de una pagina de acuerdo a la url que solicite el usuario
    Route ->llamar a los componentes y se define las rutas de la aplicación.
     - /->para mostrar ruta raíz
@@ -39,7 +37,6 @@ function AppRouter(){
                 <Route exact path="/signin">
                     <Redirect to="/" />
                 </Route>
-
 
                 <Route path="/404" component={NotFoundPage} />
                 <Route path="*">

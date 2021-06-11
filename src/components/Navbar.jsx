@@ -32,8 +32,7 @@ const Navbar = () => {
                 {/* Para restringir ⬇ rutas, si el usuario esta logeado se muestra los elmentos:*/}
                 {auth.isLogged() && (
                     <>
-                        
-                        
+                       
                         <li>
                             <button onClick={auth.logout}>Cerrar Sesión</button>
                         </li>

@@ -1,4 +1,4 @@
-export default function Historial() {
+export default function HistorialMesero() {
     return (
         <div>
             <h1>Historial</h1> <br></br>
