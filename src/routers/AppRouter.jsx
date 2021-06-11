@@ -5,13 +5,10 @@ import {
     Switch,
 } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import DashboardPage from "../pages/DashboardPage";
 import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import PaymentsPage from "../pages/PaymentsPage";
 import ProfilePage from "../pages/ProfilePage";
 import CategoriesRouter from "./CategoriesRouter";
-import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 
 
@@ -43,10 +40,6 @@ function AppRouter(){
                     <Redirect to="/" />
                 </Route>
 
-
-                <PrivateRoute exact path="/dashboard" component={DashboardPage} />
-
-                <PrivateRoute exact path="/payments" component={PaymentsPage} />
 
                 <Route path="/404" component={NotFoundPage} />
                 <Route path="*">
