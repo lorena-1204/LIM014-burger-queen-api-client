@@ -4,12 +4,16 @@ import {
     Route,
     Switch,
 } from "react-router-dom";
+
 import Navbar from "../components/Navbar";
 import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import ProfilePage from "../pages/ProfilePage";
-import CategoriesRouter from "./CategoriesRouter";
+
 import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivateRoute";
+import MeseroRouter from "./MeseroRouter";
+import CocinaRouter from "./CocinaRouter";
+import AdministradorRouter from "./AdminRouter";
 
 /* Approuter-> se va a encargar de renderizar los componentes de una pagina de acuerdo a la url que solicite el usuario
    Route ->llamar a los componentes y se define las rutas de la aplicación.
@@ -27,13 +31,14 @@ function AppRouter(){
             <Navbar />
             <Switch>
                 <PublicRoute exact path="/" component={LoginPage} />
-                <Route exact path="/profile/:username" component={ProfilePage} />
 
-                <Route path="/categories" component={CategoriesRouter} />
+                <PrivateRoute path="/mesero" component={MeseroRouter} />
+                <PrivateRoute path="/cocina" component={CocinaRouter} />
+                <PrivateRoute path="/administrador" component={AdministradorRouter} />
+                
                 {/* <Route path="/administrador">
                     <Administrador/>
                 </Route> */}
-
                 <Route exact path="/signin">
                     <Redirect to="/" />
                 </Route>
