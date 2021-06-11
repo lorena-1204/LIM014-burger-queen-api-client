@@ -10,7 +10,7 @@ export default function LoginPage() {
     const auth = useAuth();
     const handleLogin = () => {
         auth.login();
-        history.push(previusObjectURL || "/dashboard")
+        history.push(previusObjectURL || "/categories")
         // se envia ala url anterior⬆
     }
 
