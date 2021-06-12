@@ -1,0 +1,11 @@
+.navigation {
+    background-color: $color-primary;
+    height: 5rem;
+    
+    &__list {
+
+        &__item { 
+            font-size: 1.6rem;
+        }  
+    }
+}
