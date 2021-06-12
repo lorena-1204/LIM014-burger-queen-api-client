@@ -1,4 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { 
+    Link,
+    NavLink 
+} from "react-router-dom";
 import useAuth from "../auth/useAuth";
 
 /*- to -> para que vaya al link.
@@ -10,20 +13,18 @@ const Navbar = () => {
     return (
         <nav>
             <ul>
-                {/* Para restringir ⬇ rutas, si el usuario no  esta logeado se muestra lossiguientes elmentos*/}
-               
+                {/* Para restringir ⬇ rutas, si el usuario no  esta logeado se muestra los siguientes elmentos*/}
                 {!auth.isLogged() && (
-                    <>
                         <li>
-                            <NavLink exact to="/" activeClassName="active">
+                            <Link exact to="/" activeClassName="active">
                                 Login
-                             </NavLink>
+                             </Link>
                         </li>
                         
-                    </>
                 )}
 
-                {/* Para restringir ⬇ rutas, si el usuario esta logeado se muestra los elmentos:*/}
+                {/*  como son varios elementos y solo se puede retornar un se usa:   <>  </> ->> es un fragmente que envuelve a los elementos
+               Para restringir ⬇ rutas, si el usuario esta logeado se muestra los elmentos:*/}
                 {auth.isLogged() && (
                     <>
                         <li>
