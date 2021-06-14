@@ -1,4 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { 
+    Link,
+    NavLink 
+} from "react-router-dom";
 import useAuth from "../auth/useAuth";
 
 /*- to -> para que vaya al link.
@@ -9,9 +12,10 @@ const Navbar = () => {
 
     return (
         <nav className="navigation">
+
             <ul className="navigation__list">
                 {/* Para restringir ⬇ rutas, si el usuario no  esta logeado se muestra lossiguientes elmentos*/}
-               
+              
                 {!auth.isLogged() && (
                     <>
                         <li className="navigation__list__item">
@@ -21,23 +25,25 @@ const Navbar = () => {
                         </li>
                         
                     </>
+
                 )}
 
-                {/* Para restringir ⬇ rutas, si el usuario esta logeado se muestra los elmentos:*/}
+                {/*  como son varios elementos y solo se puede retornar un se usa:   <>  </> ->> es un fragmente que envuelve a los elementos
+               Para restringir ⬇ rutas, si el usuario esta logeado se muestra los elmentos:*/}
                 {auth.isLogged() && (
                     <>
                         <li>
-                            <NavLink to={`/mesero`} activeClassName="active">
+                            <NavLink to={`/mesero`} ClassName="active">
                                 Mesero
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={`/cocina`} activeClassName="active">
+                            <NavLink to={`/cocina`} ClassName="active">
                                 Cocina
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink exact to={`/administrador`} activeClassName="active">
+                            <NavLink exact to={`/administrador`} ClassName="active">
                                 Administrador
                             </NavLink>
                         </li>
