@@ -18,18 +18,24 @@ export default function LoginPage() {
 
     return (
         <section className="page-login">
-            <h1 className="login-form__title">Burguer Queen</h1>
-            <form className="login-form__form" autocomplete="off">
-                <div className="login-form__form__input-group">
-                    <input className="input-default" type="email" placeholder='Usuario'></input>
-                    <input className="input-default" type="password" placeholder='************'></input>
-                </div>
-               
-                <button className="button-default" onClick={handleLogin}>
-                    Iniciar Sesión
-                </button>
-            </form>
-         
+
+            <div className="login-form">
+                <h1 className="login-form__title">Burguer Queen</h1>
+                <form className="login-form__form" autocomplete="off">
+                    <div className="login-form__form__input-group">
+                        <input className="input-default"  type="email" placeholder='Usuario'></input>
+                        <input className="input-default"  type="password" placeholder='Password'></input>
+                    </div>
+
+                    <button className="button-default" onClick={handleLogin}>
+                        Iniciar Sesión
+                    </button>
+
+                </form>
+            </div>
+
+
+
         </section>
     )
 }

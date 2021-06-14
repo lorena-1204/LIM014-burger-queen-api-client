@@ -12,14 +12,20 @@ const Navbar = () => {
 
     return (
         <nav className="navigation">
-            <ul className="navigation_list">
-                {/* Para restringir ⬇ rutas, si el usuario no  esta logeado se muestra los siguientes elmentos*/}
+
+            <ul className="navigation__list">
+                {/* Para restringir ⬇ rutas, si el usuario no  esta logeado se muestra lossiguientes elmentos*/}
+              
                 {!auth.isLogged() && (
-                    <li className="navigation__list__item">
-                        <Link exact to="/" ClassName="active">
-                         Login
-                        </Link>
-                    </li>  
+                    <>
+                        <li className="navigation__list__item">
+                            <NavLink exact to="/" activeClassName="active">
+                                Login
+                             </NavLink>
+                        </li>
+                        
+                    </>
+
                 )}
 
                 {/*  como son varios elementos y solo se puede retornar un se usa:   <>  </> ->> es un fragmente que envuelve a los elementos
