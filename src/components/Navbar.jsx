@@ -8,13 +8,13 @@ const Navbar = () => {
     const auth = useAuth();
 
     return (
-        <nav>
-            <ul>
+        <nav className="navigation">
+            <ul className="navigation__list">
                 {/* Para restringir ⬇ rutas, si el usuario no  esta logeado se muestra lossiguientes elmentos*/}
                
                 {!auth.isLogged() && (
                     <>
-                        <li>
+                        <li className="navigation__list__item">
                             <NavLink exact to="/" activeClassName="active">
                                 Login
                              </NavLink>
