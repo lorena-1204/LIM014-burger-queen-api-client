@@ -16,11 +16,10 @@ const Navbar = () => {
                 {/* Para restringir ⬇ rutas, si el usuario no  esta logeado se muestra los siguientes elmentos*/}
                 {!auth.isLogged() && (
                     <li className="navigation__list__item">
-                            <Link exact to="/" ClassName="active">
-                                Login
-                             </Link>
-                        </li>
-                        
+                        <Link exact to="/" ClassName="active">
+                         Login
+                        </Link>
+                    </li>  
                 )}
 
                 {/*  como son varios elementos y solo se puede retornar un se usa:   <>  </> ->> es un fragmente que envuelve a los elementos
