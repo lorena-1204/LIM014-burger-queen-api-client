@@ -1,0 +1,28 @@
+.page-home {
+    background-color: $color-background;
+    height: 100%; 
+    display: flex;  
+    justify-content: flex-start; 
+    padding-top: 8rem;
+    //align-items: center;
+}; 
+.client-name__input-area{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 50rem;
+    background-color: transparent;
+    margin: 2rem 3rem; 
+    padding: 2rem; 
+}
+.left-column{
+    flex-direction:  column;
+    width: 50%;
+    height: 100%;
+}
+.right-column{
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}

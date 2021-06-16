@@ -1,0 +1,18 @@
+.button-group{
+justify-content:space-evenly
+}
+
+.button-group__food{
+    background-color: $color-primary-light;  
+    border: none;
+    color: white;
+    padding: 1.5rem 3.2rem; 
+    text-align: center;
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 1.6rem; 
+    border-radius: 4px;
+    font-family: $font-primary;  
+    cursor: pointer;  
+    transition: all .3s;
+}

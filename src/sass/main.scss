@@ -7,9 +7,11 @@
 @import "base/base";
 @import "base/typography";
 @import "base/inputs";
+@import "base/btns-food-display";
 
 //pages
 @import "pages/login"; 
+@import "pages/home"; 
 
 //components
 @import "components/login/login-form"; 

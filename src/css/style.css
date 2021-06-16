@@ -47,12 +47,56 @@ body {
   .button-default:hover {
     background-color: #2eb956; }
 
+.button-group {
+  justify-content: space-evenly; }
+
+.button-group__food {
+  background-color: #FCAC04;
+  border: none;
+  color: white;
+  padding: 1.5rem 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all .3s; }
+
 .page-login {
   background-color: #4C2414;
   height: 100%;
   display: flex;
   justify-content: center;
   padding-top: 8rem; }
+
+.page-home {
+  background-color: #4C2414;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 8rem; }
+
+.client-name__input-area {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 50rem;
+  background-color: transparent;
+  margin: 2rem 3rem;
+  padding: 2rem; }
+
+.left-column {
+  flex-direction: column;
+  width: 50%;
+  height: 100%; }
+
+.right-column {
+  flex-direction: column;
+  width: 50%;
+  height: 100%; }
 
 .login-form {
   width: 100%;
