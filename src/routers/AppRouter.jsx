@@ -27,7 +27,7 @@ import AdministradorRouter from "./AdminRouter";
     - Navbar, menú para que se acceda entre rutas 
  */
 
-function AppRouter(){
+function AppRouter() {
     return (
         <Router>
             <Navbar />
@@ -36,8 +36,9 @@ function AppRouter(){
 
                 <PrivateRoute path="/mesero" component={MeseroRouter} />
                 <PrivateRoute path="/cocina" component={CocinaRouter} />
+
                 <PrivateRoute path="/administrador" component={AdministradorRouter} />
-                
+
                 {/* <Route path="/administrador">
                     <Administrador/>
                 </Route> */}
