@@ -8,9 +8,9 @@ import {
 import Navbar from "../components/Navbar";
 import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
-
-import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
+// import PrivateRoute from "./PrivateRoute";
 import MeseroRouter from "./MeseroRouter";
 import CocinaRouter from "./CocinaRouter";
 import AdministradorRouter from "./AdminRouter";
