@@ -1,3 +1,28 @@
+/*sass: todo lo que sea un ul y luego un li, se ve afectado - se agrego*/
+ul{
+    list-style:none;
+   
+  li{
+    display:inline-block;
+    padding: 1.5rem;
+    // &:hover{
+    //     background-color:darken($color:$color-secondary,$amount:10);
+    //     box-shadow: 3px 3px 3px 3px $dark;
+    // }
+    Link{
+        text-decoration: none;
+        font-size: 2rem;
+        color:$color-input;
+        &:hover{
+        text-decoration: underline;
+        background-color:lighten($color:$color-secondary,$amount:10);
+    }
+    }
+  }
+}
+// Link{
+//     display:inline-block;
+// }
 .navigation {
     background-color: $color-primary;
     height: 5rem;
