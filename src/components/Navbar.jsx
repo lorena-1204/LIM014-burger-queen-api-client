@@ -19,7 +19,7 @@ const Navbar = () => {
                 {!auth.isLogged() && (
                     <>
                         <li className="navigation__list__item">
-                            <NavLink exact to="/" activeclassName="active">
+                            <NavLink exact to="/" activeClassName="active">
                                 Login
                             </NavLink>
                         </li>
