@@ -1,6 +1,6 @@
-import { 
+import {
     // Link,
-    NavLink 
+    NavLink
 } from "react-router-dom";
 import useAuth from "../auth/useAuth";
 
@@ -15,15 +15,15 @@ const Navbar = () => {
 
             <ul className="navigation__list">
                 {/* Para restringir ⬇ rutas, si el usuario no  esta logeado se muestra lossiguientes elmentos*/}
-              
+
                 {!auth.isLogged() && (
                     <>
                         <li className="navigation__list__item">
-                            <NavLink exact to="/" activeClassName="active">
+                            <NavLink exact to="/" activeclassName="active">
                                 Login
-                             </NavLink>
+                            </NavLink>
                         </li>
-                        
+
                     </>
 
                 )}
@@ -33,30 +33,30 @@ const Navbar = () => {
                 {auth.isLogged() && (
                     <>
                         <li>
-                            <NavLink to={`/mesero`} ClassName="active">
+                            <NavLink to={`/mesero`} className="active">
                                 Mesero
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={`/cocina`} ClassName="active">
+                            <NavLink to={`/cocina`} className="active">
                                 Cocina
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink exact to={`/administrador`} ClassName="active">
+                            <NavLink exact to={`/administrador`} className="active">
                                 Administrador
                             </NavLink>
                         </li>
-                       
+
                         <li>
                             <button onClick={auth.logout}>Salir</button>
                         </li>
-            
+
                     </>
                 )}
             </ul>
-           
-            
+
+
         </nav>
     );
 }

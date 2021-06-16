@@ -1,4 +1,4 @@
-
+/*se llama a la variable a trvés del simbolo del dolar y se da los valores primarios, secundarios y otros colores, el guión bajo ( _ )es un partials, que es una configuración de sass (modulos)*/
 
 //Colors
 $color-primary: #E08E2F;   
@@ -9,6 +9,9 @@ $color-tertiary: #CA230A;
 $color-background: #4C2414;
 $color-input: #EFE3D0;
 $color-placeholder: #909090; 
+
+$white:snow;
+$dark:#333;
 
 //Fonts 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:regular,bold,italic&subset=latin,latin-ext');
