@@ -3,19 +3,19 @@ import { useState , useEffect } from "react"
 export default function Home() {
   
     const dataProducts = 'http://localhost:5000/products'
-    // obtener los datos de la respuesta y alcenarlo en el estado de la aplicacion setProducts modifca la variable se usa ell hook de react useState cuando se obtengan los resultados se va guardar en la variable products utilizando setProducts
+    // obtener los datos de la respuesta y alcenarlo en el estado de la aplicacion setProducts modifca la variable se usa el hook de react useState cuando se obtengan los resultados se va guardar en la variable products utilizando setProducts
   const [products, setProducts] = useState()
 
     // definir funcion se usa Async porque incluye cosas asincronas
     const fetchApi = async () => {
-        //Respuesta de la funcion fetch a la url(dataProducts) y es un await  porque se debe esperar
-        const response = await fetch(dataProducts)
-        console.log(response)
+        //Respuesta de la funcion fetch a la url(dataProducts) y es un await  porque se debe esperar y retorna una promesa
+        const response = await fetch(dataProducts) /*Se alamacena la respuesta de la url */
+        // console.log(response.status)
 
-        //se procesa la respuesta, interpretandola como json
+        //se procesa la respuesta(parsea), interpretandola como json
         const responseJSON = await response.json()
-        setProducts(responseJSON)
-        console.log(responseJSON)
+        setProducts(responseJSON.products)
+        // console.log(responseJSON.products)
      }
 
     // useEffect, es un hook de react que permite encargarnos del ciclo de vida de react,se le va decir  no trnga dependecias al estar el array vacio y se ejecuta al iniciar la aplicacion por primera y unica vez
@@ -28,12 +28,13 @@ export default function Home() {
         <div>
             <h1>Home</h1> 
              <ul>
-                {/* {!products ? 'Cargando ...': 
+                 {/*si no se lee productos se dice que se carga sino se muestra index=indice, para q no salga error se indica eñ key->es un valor unico por cada uno de los componentes que se renderiza */}
+                 {!products ? 'Cargando ...': 
                     products.map((products,index) => {
-                    return <li>{products.name} 
+                    return <li key={index}>{products.image} 
                     </li>
                 })
-                } */}
+                } 
             </ul> 
 
             <h2>🌊ola o hola 👋≧◉ᴥ◉≦ </h2>
