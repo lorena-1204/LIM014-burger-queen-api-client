@@ -1,5 +1,5 @@
 import { Route, Redirect, useLocation } from "react-router-dom";
-import useAuth from "../controller/auth/useAuth";
+import useAuth from "../controller/auth/useAuthgit";
 // import useAuth from "../auth/useAuth";
 
 // const user = null;
@@ -16,8 +16,10 @@ export default function PrivateRoute({ component: Component, ...rest }) {
         /*se crea la ruta y se retorna
         <Route exact={props.exact} path ={props.path} component={props.component}/> =..rest, significa q hereda todos los componentes(datos) pero no los que se desestructuran asi mismo
        Se comprueba la autentificación, normalmente se enviaria una petición a la APi, verificar, si el toquen es valido o si las credenciales son válidas para generar el toquen 
+
       ⬇ Crea un componete para rutas privadas, si el usuario esta logeado se retorna el componente sino retorna el redirect, es decir lo redirecciona al login - 
        */
+
         <Route {...rest}>
             {auth.isLogged() ? (
                 <Component />

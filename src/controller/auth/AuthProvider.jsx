@@ -1,8 +1,10 @@
 import { createContext, useState, useEffect } from "react";
+
 /*esta carpeta almacena el contexto,  cada vez que se actualice los datos se almace en el localstorage, se usa el useEffect ->reescribe el localstoge cada vez que el usuario cambie 
 Auth Provider -> suministra el conexto de autentificación a los demás componentes
 AuthContext -> sirve para consumer a los componentes que existen en este contexto
 useEffect -> lo usamos para que cada vez que se actualice el  estado de usuario se almacenen los datos en el localstorage */
+
 
 export const AuthContext = createContext();
 
