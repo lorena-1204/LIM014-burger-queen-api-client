@@ -6,11 +6,13 @@ import {
 } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
-import LoginPage from "../pages/LoginPage";
-import NotFoundPage from "../pages/NotFoundPage";
 
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
+
+import LoginPage from "../pages/LoginPage";
+import NotFoundPage from "../pages/NotFoundPage";
+
 import MeseroRouter from "./MeseroRouter";
 import CocinaRouter from "./CocinaRouter";
 import AdministradorRouter from "./AdminRouter";
@@ -25,7 +27,7 @@ import AdministradorRouter from "./AdminRouter";
     - Navbar, menú para que se acceda entre rutas 
  */
 
-function AppRouter(){
+function AppRouter() {
     return (
         <Router>
             <Navbar />
@@ -34,14 +36,16 @@ function AppRouter(){
 
                 <PrivateRoute path="/mesero" component={MeseroRouter} />
                 <PrivateRoute path="/cocina" component={CocinaRouter} />
+
                 <PrivateRoute path="/administrador" component={AdministradorRouter} />
-                
+
                 {/* <Route path="/administrador">
                     <Administrador/>
                 </Route> */}
                 <Route exact path="/signin">
                     <Redirect to="/" />
                 </Route>
+                {/* ⬆ al ir a una routa se redireccione al login */}
 
                 <Route path="/404" component={NotFoundPage} />
                 <Route path="*">
