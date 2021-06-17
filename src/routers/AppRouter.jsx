@@ -45,7 +45,7 @@ function AppRouter() {
                 <Route exact path="/signin">
                     <Redirect to="/" />
                 </Route>
-                {/* ⬆ al ir a una routa se redireccione al login */}
+                {/* ⬆ al ir a una routa se redireccione al login - ELIMINAR*/}
 
                 <Route path="/404" component={NotFoundPage} />
                 <Route path="*">
