@@ -4,13 +4,12 @@ import { createContext, useState, useEffect } from "react";
 Auth Provider -> suministra el conexto de autentificación a los demás componentes
 AuthContext -> sirve para consumer a los componentes que existen en este contexto
 useEffect -> lo usamos para que cada vez que se actualice el  estado de usuario se almacenen los datos en el localstorage */
-
-
+ 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 
-    // const dataProducts = 'http://localhost:5000/auth';
+    const dataLogin = 'http://localhost:5000/auth';
 
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem("user")) || null
@@ -18,6 +17,16 @@ const AuthProvider = ({ children }) => {
         ➡ JSON.string --> lo convierte en un string 
         ➡ JSON.parse--> convierte de cadena(string) a objeto*/
     );
+
+    const loginUser = async () => {
+        const response = await fetch(dataLogin) 
+        // console.log(response.status)
+
+        const responseJSON = await response.json()
+        setUser(responseJSON.products)
+        // console.log(responseJSON.products)
+    }
+
 
     useEffect(() => {
         /*para prevenir fallos se usa el try Catch.comprueba quela instrucción se cumple de forma correcta, de no comprobarse se elimina el item del localstorage através del remove item para que no cree conflictos*/
@@ -28,6 +37,7 @@ const AuthProvider = ({ children }) => {
             console.log(error);
         }
         /*⬆ recibe una funcion que se ejecuta cada vez que el usuario cambie, se reescribe el localstorage, lo que tenemos en el usuario debe ser un string porque eso almacema el localstorage.*/
+        loginUser()
     }, [user]);
 
     const contextValue = {
