@@ -1,11 +1,12 @@
-.button-group{
-justify-content:space-evenly
+.select-area{
+display:flex;
+justify-content:center;
 }
 
-.button-group__food{
+.select-area__select{
     background-color: $color-primary-light;  
     border: none;
-    color: white;
+    color: #fafafa;
     padding: 1.5rem 3.2rem; 
     text-align: center;
     text-decoration: none; 
@@ -15,4 +16,5 @@ justify-content:space-evenly
     font-family: $font-primary;  
     cursor: pointer;  
     transition: all .3s;
+    width: 20rem;
 }

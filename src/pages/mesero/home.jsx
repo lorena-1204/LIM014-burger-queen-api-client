@@ -3,27 +3,33 @@ import { useState , useEffect } from "react"
 export default function Home() {
   
     const dataProducts = 'http://localhost:5000/products'
-    // obtener los datos de la respuesta y alcenarlo en el estado de la aplicacion setProducts modifca la variable se usa ell hook de react useState cuando se obtengan los resultados se va guardar en la variable products utilizando setProducts
-  // eslint-disable-next-line
-    const [products, setProducts] = useState()
+    // obtener los datos de la respuesta y alcenarlo en el estado de la aplicacion setProducts modifca la variable se usa el hook de react useState cuando se obtengan los resultados se va guardar en la variable products utilizando setProducts
+    
+  const [products, setProducts] = useState()
 
     // definir funcion se usa Async porque incluye cosas asincronas
-    const fetchApi = async () => {
-        //Respuesta de la funcion fetch a la url(dataProducts) y es un await  porque se debe esperar
-        const response = await fetch(dataProducts)
-        console.log(response)
+    const fetchApi = async (url) => {
+        //Respuesta de la funcion fetch a la url(dataProducts) y es un await  porque se debe esperar y retorna una promesa
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MGMzNGEzMWI2NjZlZTE3OThkMzFlOGQiLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInJvbGVzIjp7ImFkbWluIjp0cnVlfSwiaWF0IjoxNjIzNTU0NzU4LCJleHAiOjk5OTk5OTk5OTk5fQ.zGMhPbJxmlZUvznOr76NqBnI2DKx0l4612qdET0-66w'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+        }) /*Se alamacena la respuesta de la url */
+        // console.log(response.status)
 
-        //se procesa la respuesta, interpretandola como json
+        //se procesa la respuesta(parsea), interpretandola como json
         const responseJSON = await response.json()
-        setProducts(responseJSON.products)
-        // console.log(responseJSON)
-        }
+        return responseJSON
+        // console.log(responseJSON.products)
+     }
 
     // useEffect, es un hook de react que permite encargarnos del ciclo de vida de react,se le va decir  no trnga dependecias al estar el array vacio y se ejecuta al iniciar la aplicacion por primera y unica vez
      useEffect(() =>{
-     fetchApi()
+     fetchApi(dataProducts).then(res =>{
+        setProducts(res.products)
+     })
      },[])
-
 
     return (
         <div className="page-home">
@@ -37,9 +43,13 @@ export default function Home() {
 
                     <button className="button-default">Guardar</button>
                 </div>
-                    <div className="button-group">
-                         <button className="button-group__food">Desayuno</button>
-                         <button className="button-group__food">Almuerzo y Cena</button>
+                    <div className="select-area">
+                        
+                         <select className="select-area__select" id="select-category">
+                            <option value="none">--</option>
+                            <option> </option>
+                            <option> </option>
+                        </select> 
                     </div>
 
                         <div>
