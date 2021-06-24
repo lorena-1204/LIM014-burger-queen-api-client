@@ -1,8 +1,8 @@
 import { useState , useEffect } from "react"
+import { urlApi } from "../../controller/URL"
 
 export default function Home() {
-  
-    const dataProducts = 'http://localhost:5000/products'
+    
     // obtener los datos de la respuesta y alcenarlo en el estado de la aplicacion setProducts modifca la variable se usa el hook de react useState cuando se obtengan los resultados se va guardar en la variable products utilizando setProducts
     
   const [products, setProducts] = useState()
@@ -26,7 +26,8 @@ export default function Home() {
 
     // useEffect, es un hook de react que permite encargarnos del ciclo de vida de react,se le va decir  no trnga dependecias al estar el array vacio y se ejecuta al iniciar la aplicacion por primera y unica vez
      useEffect(() =>{
-     fetchApi(dataProducts).then(res =>{
+     fetchApi(`${urlApi}/products`
+     ).then(res =>{
         setProducts(res.products)
      })
      },[])
@@ -55,7 +56,7 @@ export default function Home() {
                         <div>
                         {!products ? 'Cargando ...': 
                         products.map((products,index) => {
-                        return <li key={index}>{products.price} 
+                        return <li key={index}>{products.name} 
                         </li>
                          })
                             } 
