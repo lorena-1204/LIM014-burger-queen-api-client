@@ -1,11 +1,15 @@
-import { useState, useEffect } from "react"
-import { urlApi } from "../../controller/URL"
+import { 
+    // useState, 
+    useEffect, 
+    useContext } from "react"
+import { urlApi } from "./URL"
 
-export default function Home() {
-    // obtener los datos de la respuesta y alcenarlo en el estado de la aplicacion setProducts modifca la variable se usa el hook de react useState cuando se obtengan los resultados se va guardar en la variable products utilizando setProducts
 
-    const [products, setProducts] = useState()
 
+export default function GetProducts() {
+
+    // const [products, setProducts] = useState()
+    const [products, setProducts] = useContext()
     // definir funcion se usa Async porque incluye cosas asincronas
     const fetchApi = async (url) => {
         //Respuesta de la funcion fetch a la url(dataProducts) y es un await  porque se debe esperar y retorna una promesa
@@ -29,27 +33,10 @@ export default function Home() {
         ).then(res => {
             setProducts(res.products)
         })
-    }, [])
+    }, [setProducts])
 
     return (
-        <div>
-            <h1>Home</h1>
-            <h4>
-                {products.name} {products.price}
-            </h4>
-
-
-            <ul>
-                {/*si no se lee productos se dice que se carga sino se muestra index=indice, para q no salga error se indica eñ key->es un valor unico por cada uno de los componentes que se renderiza */}
-                {!products ? 'Cargando ...' :
-                    products.map((products, index) => {
-                        return <li key={index}>{products.image}
-                        </li>
-                    })
-                }
-            </ul>
-
-            <h2>🌊ola o hola 👋≧◉ᴥ◉≦ </h2>
-        </div>
+        products
     )
 }
+
