@@ -33,13 +33,23 @@ function LoginPage() {
     });
 
     return (
-        <Fragment>
-            <p>Ingresa tu correo electrónico</p>
-            <input id='txtEmail'></input>
-            <p>Ingresa tu contraseña</p>
-            <input id='txtPassword'></input>
-            <button onClick={() => loginUser()} >Iniciar</button>
-        </Fragment>
-    );
-}
-export default LoginPage;
+
+        <section className="page-login">
+
+            <div className="login-form">
+                <h1 className="login-form__title">Burguer Queen</h1>
+                <form className="login-form__form" autoComplete="off">
+                    <div className="login-form__form__input-group">
+                        <input className="input-default"  type="email" placeholder='Usuario'></input>
+                        <input className="input-default"  type="password" placeholder='Password'></input>
+                    </div>
+
+                    <button className="button-default" onClick={handleLogin}>
+                        Iniciar Sesión
+                    </button>
+
+                </form>
+            </div>
+        </section>
+    )
+
