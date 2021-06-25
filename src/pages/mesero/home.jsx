@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import { urlApi } from "../../controller/URL"
 
 export default function Home() {
+
+
     // obtener los datos de la respuesta y alcenarlo en el estado de la aplicacion setProducts modifca la variable se usa el hook de react useState cuando se obtengan los resultados se va guardar en la variable products utilizando setProducts
 
     const [products, setProducts] = useState()
@@ -31,14 +33,10 @@ export default function Home() {
         })
     }, [])
 
+
     return (
         <div>
             <h1>Home</h1>
-            <h4>
-                {products.name} {products.price}
-            </h4>
-
-
             <ul>
                 {/*si no se lee productos se dice que se carga sino se muestra index=indice, para q no salga error se indica eñ key->es un valor unico por cada uno de los componentes que se renderiza */}
                 {!products ? 'Cargando ...' :

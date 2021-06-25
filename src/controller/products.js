@@ -4,8 +4,6 @@ import {
     useContext } from "react"
 import { urlApi } from "./URL"
 
-
-
 export default function GetProducts() {
 
     // const [products, setProducts] = useState()
