@@ -1,13 +1,13 @@
 
 import { useState , useEffect } from "react"
 import { urlApi } from "../../controller/URL"
+import { getProducts } from "../../services/products";
 
 export default function Home() {
     
     // obtener los datos de la respuesta y alcenarlo en el estado de la aplicacion setProducts modifca la variable se usa el hook de react useState cuando se obtengan los resultados se va guardar en la variable products utilizando setProducts
     
   const [products, setProducts] = useState()
-=======
 
     // definir funcion se usa Async porque incluye cosas asincronas
     const fetchApi = async (url) => {
@@ -28,9 +28,8 @@ export default function Home() {
     }
 
     // useEffect, es un hook de react que permite encargarnos del ciclo de vida de react,se le va decir  no trnga dependecias al estar el array vacio y se ejecuta al iniciar la aplicacion por primera y unica vez
-<
      useEffect(() =>{
-     fetchApi(`${urlApi}/products`
+     getProducts(`${urlApi}/products`
      ).then(res =>{
         setProducts(res.products)
      })
