@@ -1,6 +1,6 @@
 
 import { useState , useEffect } from "react"
-import { urlApi } from "../../controller/URL"
+import { urlApi } from "../../services/URL"
 import { getProducts } from "../../services/products";
 
 export default function Home() {
