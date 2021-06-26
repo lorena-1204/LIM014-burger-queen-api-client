@@ -4,19 +4,32 @@ import { createContext, useState, useEffect } from "react";
 Auth Provider -> suministra el conexto de autentificación a los demás componentes
 AuthContext -> sirve para consumer a los componentes que existen en este contexto
 useEffect -> lo usamos para que cada vez que se actualice el  estado de usuario se almacenen los datos en el localstorage */
-
-import { urlApi } from "./url";
-
-
+ 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 
+    const dataLogin = 'http://localhost:5000/auth';
+
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem("user")) || null
+        /* dato que almacena es el user pero tiene que ser un string JSON➡para q no  haya problemas ya que localstorage solo almacena string se pasa a traves del Json.string 
+        ➡ JSON.string --> lo convierte en un string 
+        ➡ JSON.parse--> convierte de cadena(string) a objeto*/
     );
 
+    const loginUser = async () => {
+        const response = await fetch(dataLogin) 
+        // console.log(response.status)
+
+        const responseJSON = await response.json()
+        setUser(responseJSON.products)
+        // console.log(responseJSON.products)
+    }
+
+
     useEffect(() => {
+        /*para prevenir fallos se usa el try Catch.comprueba quela instrucción se cumple de forma correcta, de no comprobarse se elimina el item del localstorage através del remove item para que no cree conflictos*/
         try {
             localStorage.setItem("user", JSON.stringify(user));
         } catch (error) {
@@ -24,12 +37,10 @@ const AuthProvider = ({ children }) => {
             console.log(error);
         }
         /*⬆ recibe una funcion que se ejecuta cada vez que el usuario cambie, se reescribe el localstorage, lo que tenemos en el usuario debe ser un string porque eso almacema el localstorage.*/
+        loginUser()
     }, [user]);
 
-
-//informacion que se pasa a los demas componente
     const contextValue = {
-
         /*Si se consumiera desde la API 1.se tendria que hacer la consulta, 2. verificar que la autentificación se realizo con exito. 3.la informacion del usuario que retorna es la q se colocaria en este estado 4. lo q se esta haciendo: llenar el estado con el contenido del usuario , se coloca en el app.js 
         - isLogged --> si el usuario es nulo entonces falso, pero si el usuario existe entonces es verdadero */
         user,

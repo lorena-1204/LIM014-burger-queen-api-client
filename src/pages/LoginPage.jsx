@@ -1,47 +1,33 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { urlApi } from "./url"
+// import { useState, useEffect } from "react"
 
-function LoginPage() {
-    const [token, setToken] = useState({});
-    // HOOKS - setToken: Es el método creado con useState que sirve para cambiar el valor de la variable token, que se encuentra en el estado
-    //  const [admin, setAdmin] = useState(true);    
-    const loginUser = () => {
-        const fetchData = async () => {
-            const result = await fetch.post(
-                `${urlApi}/auth`,
-                {
-                    email: document.getElementById('txtEmail').value,
-                    password: document.getElementById('txtPassword').value,
-                }
-            ).catch((error) => {
-                alert("Error de acceso");
-            });
+import { useHistory, useLocation } from 'react-router-dom';
+import useAuth from '../controller/auth/useAuth';
+// import useAuth from '../auth/useAuth';
 
-            if (result !== undefined) {
-                // const responseJSON = await result.json()
-                // setToken(responseJSON.token);
-                // localStorage.setItem('token', responseJSON.token);
+export default function LoginPage() {
+    const history = useHistory(); /*nos permite navegar a otra página */
+    const location = useLocation(); /*permite obtener informacion de la url ,nos ayuda a almacenar el location en la ruta anterior */
+    // console.log (location);
+    // console.log(location.state?.from); ?si el state es nulo va dar undefined
+    /*➡trae la información del url⬆ u */
+    const previusObjectURL = location.state?.from;
 
-                setToken(result.data.token);
-                localStorage.setItem('token', result.data.token);
-            }
-        };
-        fetchData();
+    const auth = useAuth();
+    const handleLogin = () => {
+        auth.login();
+        history.push(previusObjectURL || "/mesero")
+        /*⬆ se envia a la ruta anterior pero si es undefined entonces se envia a mesero- el estado de las rutas anteriores solo se esta guardando en las rutas privadas*/
     }
-    useEffect(() => {  //Se lanza cada vez que se cambia el estado 
-        console.log("estado", token);
-    });
 
     return (
-
         <section className="page-login">
 
             <div className="login-form">
                 <h1 className="login-form__title">Burguer Queen</h1>
                 <form className="login-form__form" autoComplete="off">
                     <div className="login-form__form__input-group">
-                        <input className="input-default"  type="email" placeholder='Usuario'></input>
-                        <input className="input-default"  type="password" placeholder='Password'></input>
+                        <input className="input-default" type="email" placeholder='Usuario'></input>
+                        <input className="input-default" type="password" placeholder='Password'></input>
                     </div>
 
                     <button className="button-default" onClick={handleLogin}>
@@ -50,6 +36,9 @@ function LoginPage() {
 
                 </form>
             </div>
+
+
+
         </section>
     )
-
+}
