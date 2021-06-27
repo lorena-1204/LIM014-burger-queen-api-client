@@ -1,8 +1,9 @@
 // import { useState, useEffect } from "react"
 
 import { useHistory, useLocation } from 'react-router-dom';
-import useAuth from '../controller/auth/useAuth';
-// import useAuth from '../auth/useAuth';
+import { useAuth } from '../services/auth';
+
+
 
 export default function LoginPage() {
     const history = useHistory(); /*nos permite navegar a otra página */

@@ -1,7 +1,5 @@
 import { Route, Redirect, useLocation } from "react-router-dom";
-import useAuth from "../controller/auth/useAuth";
-
-// import useAuth from "../auth/useAuth";
+import { useAuth } from "../services/auth";
 
 
 // const user = null;
