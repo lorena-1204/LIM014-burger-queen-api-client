@@ -3,8 +3,6 @@
 import { useHistory, useLocation } from 'react-router-dom';
 import { useAuth } from '../services/auth';
 
-
-
 export default function LoginPage() {
     const history = useHistory(); /*nos permite navegar a otra página */
     const location = useLocation(); /*permite obtener informacion de la url ,nos ayuda a almacenar el location en la ruta anterior */
