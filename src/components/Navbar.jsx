@@ -12,11 +12,9 @@ const Navbar = () => {
                     <NavLink exact to="/" className="active"> Login</NavLink>
                 </li>
                 <li>
-                    <NavLink exact to="/mesero" className="active"> Mesero</NavLink>
+                    <NavLink exact to="/rol" className="active"> Rol</NavLink>
                 </li>
-                <li>
-                    <Link exact to="/cocina"> Cocina</Link>
-                </li>
+               
                 <li>
                     <Link exact to="/administrador"> Administrador</Link>
                 </li>

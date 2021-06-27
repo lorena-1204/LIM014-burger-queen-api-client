@@ -1,30 +1,33 @@
 import React from 'react';
 import {
     BrowserRouter as Router,
+    Redirect,
     Switch,
     Route,
 } from "react-router-dom";
 
 import Navbar from '../components/Navbar';
-import Administrador from '../pages/administrador';
-import Mesero from '../pages/mesero';
-import Cocina from '../pages/cocina';
-import NotFound from '../pages/NotFoundPage';
+import NotFoundPage from '../pages/NotFoundPage';
 
 import LoginPage from '../pages/LoginPage';
-
+import AdministradorRouter from './Roles/AdminRouter';
+import RolRouter from './Roles/RolesRouter';
 
 function AppRouter() {
     return (
         <Router>
             <Navbar />
             <Switch>
-                <Route exact path="/" component={LoginPage} />
-                <Route exact path="/mesero" component={Mesero} />
-                <Route exact path="/cocina" component={Cocina} />
-                <Route exact path="/administrador" component={Administrador} />
+                <Route exact path =  "/" component={LoginPage} />
+             
+                <Route path = "/administrador" component={AdministradorRouter} />
 
-                <Route exact path="*" component={NotFound} />
+                <Route path = "/rol" component={RolRouter} />
+             
+                <Route path ="/404" component={NotFoundPage} />
+                <Route path ="*">
+                    <Redirect to="/404" />
+                </Route>
 
                 {/* <Route path="/administrador">
                     <Administrador/>
@@ -33,5 +36,6 @@ function AppRouter() {
         </Router>
     );
 }
+
 
 export default AppRouter;
