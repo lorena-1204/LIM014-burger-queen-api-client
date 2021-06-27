@@ -1,41 +1,39 @@
-// import { useState, useEffect } from "react"
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
+import { postAuth } from '../services/auth';
 
-import { useHistory, useLocation } from 'react-router-dom';
-import useAuth from '../controller/auth/useAuth';
-// import useAuth from '../auth/useAuth';
-
-export default function LoginPage() {
-    const history = useHistory(); /*nos permite navegar a otra página */
-    const location = useLocation(); /*permite obtener informacion de la url ,nos ayuda a almacenar el location en la ruta anterior */
-    // console.log (location);
-    // console.log(location.state?.from); ?si el state es nulo va dar undefined
-    /*➡trae la información del url⬆ u */
-    const previusObjectURL = location.state?.from;
-
-    const auth = useAuth();
-    const handleLogin = () => {
-        auth.login();
-        history.push(previusObjectURL || "/mesero")
-        /*⬆ se envia a la ruta anterior pero si es undefined entonces se envia a mesero- el estado de las rutas anteriores solo se esta guardando en las rutas privadas*/
+const LoginPage = () => {
+    const history= useHistory();
+    const[email, setEmail]= useState('');
+    const[password, setPassword]= useState('');
+    const login = async(event)=>{
+        event.preventDefault();
+        try{
+            const { token } = await postAuth(email, password);
+            localStorage.setItem('token', token);
+             // guarda token en EL STORAGE
+             history.push ();
+        }catch(error){
+            document.getElementById('error').textContent = error;
+        }
     }
-
     return (
-        <section className="page-login">
-
-            <div className="login-form">
-                <h1 className="login-form__title">Burguer Queen</h1>
-                <form className="login-form__form" autoComplete="off">
-                    <div className="login-form__form__input-group">
-                        <input className="input-default"  type="email" placeholder='Usuario'></input>
-                        <input className="input-default"  type="password" placeholder='Password'></input>
-                    </div>
-
-                    <button className="button-default" onClick={handleLogin}>
-                        Iniciar Sesión
-                    </button>
-
+        <div className="login">
+            <h1>
+                Burger Queen
+            </h1>
+            <div id="login-form" className="body">
+               
+                <form onSubmit={(event) => login(event)}>
+                    <input type="text" name="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <p id="error" />
+                    <button type="submit" value="Login">Login</button>
+                    {/* <input class="sub" type="submit" value="Login" /> */}
                 </form>
             </div>
-        </section>
+        </div>
     )
 }
+
+export default LoginPage
