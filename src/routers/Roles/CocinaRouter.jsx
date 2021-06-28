@@ -8,11 +8,14 @@ import {
 } from "react-router-dom";
 import HistorialCocina from "../../pages/cocina/historialCocina";
 import Proceso from "../../pages/cocina/proceso";
+
 // import PrivateRoute from "./PrivateRoute";
+
 
 
 export default function CocinaRouter() {
     const { url } = useRouteMatch();
+    // {/* url=cocina */ }
     return (
         < >
             <ul>
@@ -23,6 +26,7 @@ export default function CocinaRouter() {
                     <Link to="/rol/cocina/historial">Historial</Link>
                 </li>
             </ul>
+
             <Switch>
                 <Route exact path={`${url}`} component={Proceso} />
                 <Route exact path={`${url}/historial`} component={HistorialCocina} />

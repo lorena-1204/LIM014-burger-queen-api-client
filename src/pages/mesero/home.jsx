@@ -25,7 +25,7 @@ export default function Home() {
                 {/*si no se lee productos se dice que se carga sino se muestra index=indice, para q no salga error se indica eñ key->es un valor unico por cada uno de los componentes que se renderiza */}
                 {!products ? 'Cargando ...' :
                     products.map((products, index) => {
-                        return <li key={index}>{products.image}
+                        return <li key={index}>{products.name}
                         </li>
                     })
                 }

@@ -15,7 +15,7 @@ export default function AdministradorRouter(){
         <>
         <ul>
             <li>
-                <Link exact to="/administrador">Menu</Link>
+                <Link to="/administrador">Menu</Link>
             </li>
             <li>
                 <Link to="/administrador/trabajadores">Trabajadores</Link>
