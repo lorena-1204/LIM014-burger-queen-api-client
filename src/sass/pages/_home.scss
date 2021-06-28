@@ -1,9 +1,5 @@
 .page-home {
-    background-color: $color-background;
-    height: 100%; 
-    display: flex;  
-    justify-content: flex-start; 
-    padding-top: 8rem;
+   @include meseroBackground 
     //align-items: center;
 }; 
 .client-name__input-area{
@@ -17,12 +13,8 @@
     padding: 2rem; 
 }
 .left-column{
-    flex-direction:  column;
-    width: 50%;
-    height: 100%;
+   @include columnsMesero
 }
 .right-column{
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
+    @include columnsMesero
 }

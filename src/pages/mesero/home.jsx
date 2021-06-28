@@ -65,14 +65,17 @@ export default function Home() {
             </div>
 
              {/* columna derecha*/}
-             <div className="right-column"> 
-                <div className="client-name__input-area">
-                    <div className="login-form__form__input-group">
-                    <input className="input-default"  type="name" placeholder='Nombre del cliente'></input>
-                    <input className="input-default"  type="number" placeholder='Numero de mesa'></input>
+             <div className="right-column__box-area"> 
+                <div className="right-column__box-area__text-area">
+                    <p>Cliente: </p>
+                    <p>Colaborador:</p>
+                    <p># orders:</p>
+                    <p>Mesa:</p>
+                    <div className="right-column__box-area__header">
+                        <p>#     Products    Precio </p>
                     </div>
 
-                    <button className="button-default">Guardar</button>
+                    
                 </div>
             </div>
            

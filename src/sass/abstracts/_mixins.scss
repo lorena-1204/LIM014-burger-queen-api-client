@@ -1,0 +1,15 @@
+@mixin meseroBackground {
+background-color: $color-background;
+height: 100%; 
+display: flex;  
+justify-content: flex-start; 
+padding-top: 8rem;
+}
+@mixin columnsMesero{
+    flex-direction:  column;
+    width: 50%;
+    height: 100%;
+}
+
+   
+
