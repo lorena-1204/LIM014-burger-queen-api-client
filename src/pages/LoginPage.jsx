@@ -28,11 +28,11 @@ export default function LoginPage() {
                     <div className="login-form__form__input-group">
                         <input className="input-default"  type="email" placeholder='Usuario'></input>
                         <input className="input-default"  type="password" placeholder='Password'></input>
-                    </div>
-
-                    <button className="button-default" onClick={handleLogin}>
+                        <button className="button-default" onClick={handleLogin}>
                         Iniciar Sesión
-                    </button>
+                        </button>
+                    </div>
+                    
 
                 </form>
             </div>

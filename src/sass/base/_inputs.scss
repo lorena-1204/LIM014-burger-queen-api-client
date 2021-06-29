@@ -10,18 +10,8 @@
 }  
 
 .button-default {
-    background-color: $color-secondary;  
-    border: none;
-    color: white;
-    padding: 1.5rem 3.2rem; 
-    text-align: center;
-    text-decoration: none; 
-    display: inline-block;
-    font-size: 1.6rem; 
-    border-radius: 4px;
-    font-family: $font-primary;  
-    cursor: pointer;  
-    transition: all .3s;
+   @include Btn;
+   background-color: $color-secondary;
  
 
     &:hover {

@@ -1,5 +1,6 @@
 import { useState , useEffect } from "react"
 import { urlApi } from "../../controller/URL"
+import {Counter} from "./Counter1"
 
 export default function Home() {
     
@@ -41,8 +42,8 @@ export default function Home() {
                     <input className="input-default"  type="name" placeholder='Nombre del cliente'></input>
                     <input className="input-default"  type="number" placeholder='Numero de mesa'></input>
                     </div>
-
-                    <button className="button-default">Guardar</button>
+                        <div><button className="button-default">Guardar</button></div>
+                    
                 </div>
                     <div className="select-area">
                         
@@ -53,11 +54,12 @@ export default function Home() {
                         </select> 
                     </div>
 
-                        <div>
+                        <div className='page-home__products'>
                         {!products ? 'Cargando ...': 
                         products.map((products,index) => {
-                        return <li key={index}>{products.name} 
-                        </li>
+                        return <div  className='page-home__products__container' key={index}>{products.name}<ul>S/.{products.price}</ul><img className='page-home__products__img' src={products.image} alt="" />
+                        </div>
+                        
                          })
                             } 
 

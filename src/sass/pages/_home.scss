@@ -7,13 +7,16 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    max-width: 50rem;
+    max-width: 40rem;
     background-color: transparent;
-    margin: 2rem 3rem; 
-    padding: 2rem; 
+    margin-bottom: 1.5rem; 
+    text-align-last: center;
+    
 }
 .left-column{
-   @include columnsMesero
+   @include columnsMesero;
+   justify-content: center;
+   align-items: center;
 }
 .right-column{
     @include columnsMesero
