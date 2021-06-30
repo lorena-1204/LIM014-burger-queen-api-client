@@ -11,13 +11,11 @@ export const postAuth = async (email, password) => {
                 }),
         headers: { 'Content-Type': 'application/json' }
     })
-    console.log("cuerpo", response);
-    // console.log("que", response);
+    // console.log("cuerpo", response);
 
     const dataJSON = await response.json();
 
     return dataJSON
-
     //   .then((response) => {
     //      if (response.status === 200) {
     //          return dataJSON;

@@ -1,14 +1,15 @@
 import { useState } from "react";
+import useAuth from "../controller/auth/useAuth.jsx";
 // import { useHistory, useLocation } from "react-router-dom";
 import { postAuth } from "../services/auth";
 
 export default function LoginPage(/*{history}*/) {
 
-    // const auth = useAuth(); /*cONtexto */
+    const auth = useAuth(); /*cONtexto */
 
     // const { startSession, role } = auth
 
-    const [login, setLogin] = useState({
+    const [formLogin, setformLogin] = useState({
         email: "",
         password: ""
     })
@@ -19,9 +20,9 @@ export default function LoginPage(/*{history}*/) {
     const handleChange = (e) => {
         console.log(`Actualizar la variable de estado`);
         //    ( setEmail, setPassword)
-        setLogin
+        setformLogin
             ({
-                ...login,
+                ...formLogin,
                 // email,
                 // password,
                 [e.target.name]: e.target.value
@@ -30,16 +31,18 @@ export default function LoginPage(/*{history}*/) {
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        console.log("form", login);
+        console.log("form", formLogin);
 
-        postAuth(login.email, login.password)
+        auth.login();
+
+        postAuth(formLogin.email, formLogin.password)
 
             .then(res => {
                 console.log("que eres", res);
 
                 if (res.statusText === 200) {
 
-                    console.log('postLogin', res.data.token);
+                    console.log('postformLogin', res.data.token);
                     console.log('post', res);
 
                     // startSession(res.data.token)
@@ -58,7 +61,7 @@ export default function LoginPage(/*{history}*/) {
             })
 
         try {
-            const { token } = await postAuth(login);
+            const { token } = await postAuth(formLogin);
 
             localStorage.setItem('token', token);
         } catch (error) {
@@ -85,7 +88,7 @@ export default function LoginPage(/*{history}*/) {
                             placeholder='Usuario'
                             onChange={handleChange}
                             // value={email.email}
-                            value={login.email}
+                            value={formLogin.email}
                         />
                         <input className="input-default"
                             type="password"
@@ -93,7 +96,7 @@ export default function LoginPage(/*{history}*/) {
                             placeholder='Password'
                             onChange={handleChange}
                             // value={password.password}
-                            value={login.password}
+                            value={formLogin.password}
                         />
 
                     </div>
