@@ -4,10 +4,90 @@ import { createContext, useState, useEffect } from "react";
 AuthContext -> sirve para consumer a los componentes que existen en este contexto
 useEffect -> lo usamos para  que se actualice el  estado de usuario se almacenen los datos en el localstorage */
 
+/* eslint-disable default-case */
+const AuthSwitch = (stateCurrent, action) => {
+    switch (action.type) {
+        case "Sesion":
+            return {
+                ...stateCurrent,
+                usuEmail: action.data.email,
+                usuId: action.data.uid,
+                token: action.data.token,
+                role: action.data.roles.admin,
+                autenticate: true,
+                loading: false
+            }
+    }
+}
+
+
+export const AuthState = (props) => {
+    const [state, dispatch] = useReducer(AuthSwitch, {
+        autenticate: false,
+        usuEmail: null,
+        usuId: null,
+        token: null,
+        role: null,
+        loading: true
+    })
+   
+    const startSession = (token) => {
+        console.log('imprimir token');
+        // console.log(token);
+        const payload = token.split(".")[1]
+        // console.log(payload);
+        // Desencriptar el payload que esta en base 64
+        const payloadDecrypt = window.atob(payload)
+        const payloadJSON = JSON.parse(payloadDecrypt)
+
+        // Inicicalizar LocalStorage 
+        localStorage.setItem("gdsldfgkl", token)
+
+        dispatch({
+            type: "Sesion",
+            data: {
+                ...payloadJSON,
+                token: token
+            }
+        })
+    }
+
+    const endSession = () => {
+
+    }
+
+    return (
+        <AuthContex.Provider value={{
+            startSession,
+            endSession,
+            usuEmail: state.usuEmail,
+            usuId: state.usuId,
+            role: state.role,
+            loading: state.loading
+        }} >
+            {props.children}
+        </AuthContex.Provider>
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+
+    
+
+
 
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem("user")) || null
@@ -32,12 +112,12 @@ const AuthProvider = ({ children }) => {
         2. verificar que la autentificación se realizo con exito. 
         3.la informacion del usuario que retorna es la q se colocaria en este estado 
         4. lo q se esta haciendo: llenar el estado con el contenido del usuario , se coloca en el app.js 
-        
+
         - isLogged --> si el usuario es nulo entonces falso, pero si el usuario existe entonces es verdadero */
         user,
         login() {
             /*consumiento desde la APi, hacer la consulta verificar que la autentificacion se realizo con exito y luegola informacion se colocaria en lo que retorno el estado ultimo paso lo que esta en seyuSER, LLENAR EL estado con los datos  */
-            setUser({ id: 1, username: "luis50" });
+            setUser({ id: "", username: "" });
         },
         logout() {
             setUser(null);
@@ -48,7 +128,10 @@ const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value=
+        {contextValue}>
+            {children}
+        </AuthContext.Provider>
     );
 };
 
