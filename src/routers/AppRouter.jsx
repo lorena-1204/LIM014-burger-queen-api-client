@@ -10,9 +10,13 @@ import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import MeseroRouter from "./MeseroRouter";
-import CocinaRouter from "./CocinaRouter";
-import AdministradorRouter from "./AdminRouter";
+
+// import MeseroRouter from "./MeseroRouter";
+// import CocinaRouter from "./CocinaRouter";
+// import AdministradorRouter from "./AdminRouter";
+
+import RolRouter from "./Roles/RolesRouter";
+import AdministradorRouter from "./Roles/AdminRouter";
 
 /* Approuter-> se va a encargar de renderizar los componentes de una pagina de acuerdo a la url que solicite el usuario
    Route ->llamar a los componentes y se define las rutas de la aplicación.
@@ -29,12 +33,15 @@ function AppRouter() {
         <Router>
             <Navbar />
             <Switch>
-                <PublicRoute exact path="/" component={LoginPage} />
+                <PublicRoute exact path="/" component = {LoginPage} />
 
-                <PrivateRoute path="/mesero" component={MeseroRouter} />
-                <PrivateRoute path="/cocina" component={CocinaRouter} />
+                <PrivateRoute path="/rol" component = {RolRouter} />
+                <PrivateRoute path="/administrador" component = {AdministradorRouter} /> 
 
-                <PrivateRoute path="/administrador" component={AdministradorRouter} />
+                {/* <PrivateRoute path="/mesero" component = {MeseroRouter} />
+                <PrivateRoute path="/cocina" component = {CocinaRouter} />
+
+                <PrivateRoute path="/administrador" component = {AdministradorRouter} /> */}
 
                 {/* <Route path="/administrador">
                     <Administrador/>
