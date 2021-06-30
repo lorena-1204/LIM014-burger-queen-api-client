@@ -1,5 +1,5 @@
 import { Route, Redirect } from "react-router-dom";
-import { useAuth } from "../services/auth";
+import useAuth from "../controller/auth/useAuth.jsx";
 
 
 /*se muestra solo si no esta logeado */
