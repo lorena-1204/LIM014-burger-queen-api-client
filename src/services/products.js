@@ -6,6 +6,7 @@ const headersHttp = {
 }
 
 export const getProducts = async (url) => {
+    // definir funcion se usa Async porque incluye cosas asincronas
     //Respuesta de la funcion fetch a la url(dataProducts) y es un await  porque se debe esperar y retorna una promesa
     const response = await fetch(url, headersHttp) /*Se alamacena la respuesta de la url */
     // console.log(response.status)
