@@ -1,9 +1,8 @@
-
 import {
     // Link,
     NavLink
 } from "react-router-dom";
-import { useAuth } from "../services/auth";
+import useAuth from "../controller/auth/useAuth.jsx";
 
 
 /*- to -> para que vaya al link.
@@ -35,7 +34,7 @@ const Navbar = () => {
                Para restringir ⬇ rutas, si el usuario esta logeado se muestra los elmentos:*/}
                 {auth.isLogged() && (
                     <>
-                        <li>
+                        {/* <li>
                             <NavLink to={`/mesero`} className="active">
                                 Mesero
                             </NavLink>
@@ -44,7 +43,14 @@ const Navbar = () => {
                             <NavLink to={`/cocina`} className="active">
                                 Cocina
                             </NavLink>
+                        </li> */}
+
+                        <li>
+                            <NavLink to="/rol" className="active"> 
+                               Rol
+                            </NavLink>
                         </li>
+
                         <li>
                             <NavLink exact to={`/administrador`} className="active">
                                 Administrador
@@ -58,7 +64,6 @@ const Navbar = () => {
                     </>
                 )}
             </ul>
-
 
         </nav>
     );
