@@ -2,7 +2,6 @@ import { useState } from "react";
 // import { useHistory, useLocation } from "react-router-dom";
 import { postAuth } from "../services/auth";
 
-
 export default function LoginPage(/*{history}*/) {
 
     // const auth = useAuth(); /*cONtexto */
