@@ -1,4 +1,4 @@
-const urlApi = 'http://localhost:5000';
+const urlApi = 'https://nodejs-bq-api.herokuapp.com';
 
 export {
     urlApi,

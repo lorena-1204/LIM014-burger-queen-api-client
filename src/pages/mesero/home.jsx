@@ -1,6 +1,5 @@
 import { useState , useEffect } from "react"
 import { urlApi } from "../../controller/URL"
-import {Counter} from "./Counter1"
 
 export default function Home() {
     
@@ -32,6 +31,7 @@ export default function Home() {
         setProducts(res.products)
      })
      },[])
+     
 
     return (
         <div className="page-home">
@@ -76,6 +76,7 @@ export default function Home() {
                     <div className="right-column__box-area__header">
                         <p>#     Products    Precio </p>
                     </div>
+                    <div>Borrar ezxtso</div>
 
                     
                 </div>
