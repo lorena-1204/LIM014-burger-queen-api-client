@@ -1,74 +1,79 @@
 import { useState } from "react";
-// import { useHistory, useLocation } from "react-router-dom";
 import { postAuth } from "../services/auth";
 
+import decode from "jwt-decode";
+import { useHistory } from "react-router-dom";
 
-export default function LoginPage(/*{history}*/) {
-
+/********** login  ************/
+export default function LoginPage() {
+    const history = useHistory();
     // const auth = useAuth(); /*cONtexto */
-
     // const { startSession, role } = auth
 
-    const [login, setLogin] = useState({
+    const [formLogin, setFormLogin] = useState({
         email: "",
         password: ""
     })
-
     // const [email, setEmail] = useState('');
     // const [password, setPassword] = useState('');
 
     const handleChange = (e) => {
         console.log(`Actualizar la variable de estado`);
         //    ( setEmail, setPassword)
-        setLogin
+        setFormLogin
             ({
-                ...login,
-                // email,
-                // password,
+                ...formLogin, /* EMAIL, PASSWORD */
                 [e.target.name]: e.target.value
             })
     }
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        console.log("form", login);
+        console.log("FORM", formLogin);
 
-        postAuth(login.email, login.password)
+        postAuth(formLogin.email, formLogin.password)
 
             .then(res => {
-                console.log("que eres", res);
 
-                if (res.statusText === 200){
+                console.log("QUE ERES", res);
+                console.log("QUE ERES PART II EL REGRESO DEL TOKEN", res.token);
+                
+                const decoded = decode(res.token);
+                console.log("DESCIFRAR", decoded);
 
-                    console.log('postLogin',res.data.token);
-                    console.log('post', res);
+                localStorage.setItem('token',decoded)
+                
+                //  if (res.statusText === 200){
 
-                    // startSession(res.data.token)
-                    // console.log("rol",role);
+                //      console.log('postAuth',res.data.token);
+                //      console.log('post', res);
 
-                    // if (role) {
-                    //     console.log(role);
-                    //     history.push("/administrador")
-                    // }
+                //     // startSession(res.data.token)
+                //     // console.log("rol",role);
 
-                    // else if (role === false){
-                    //     console.log(role);
-                    //     history.push("/rol")
-                    // }
-                }
+                //     //  if (role) {
+                //     //     console.log(role);
+                //     //      history.push("/administrador")
+                //     //  }
+
+                //     //  else if (role === false){
+                //     //  console.log(role);
+                //     //  history.push("/rol")
+                //     //  }
+                // }
 
             })
 
-        try {
-            const { token } = await postAuth(login);
+        // try {
+        //     const { token } = await postAuth(login);
 
-            localStorage.setItem('token', token);
-        } catch (error) {
-            document.getElementById('error').textContent = error;
-        }
+        //     localStorage.setItem('token', token);
+        // } catch (error) {
+        //     document.getElementById('error').textContent = error;
+        // }
+
     }
     
-
 
     return (
         <section className="page-login">
@@ -89,7 +94,7 @@ export default function LoginPage(/*{history}*/) {
                             placeholder='Usuario'
                             onChange={handleChange}
                             // value={email.email}
-                            value={login.email}
+                            value={formLogin.email}
                         />
                         <input className="input-default"
                             type="password"
@@ -97,7 +102,7 @@ export default function LoginPage(/*{history}*/) {
                             placeholder='Password'
                             onChange={handleChange}
                             // value={password.password}
-                            value={login.password}
+                            value={formLogin.password}
                         />
 
                     </div>

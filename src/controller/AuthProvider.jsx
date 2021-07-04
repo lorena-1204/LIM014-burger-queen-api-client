@@ -1,96 +1,20 @@
 import { createContext, useState, useEffect } from "react";
-
-/*Auth Provider -> suministra el conexto de autentificación a los demás componentes
-AuthContext -> sirve para consumer a los componentes que existen en este contexto
-useEffect -> lo usamos para  que se actualice el  estado de usuario se almacenen los datos en el localstorage */
-
-/* eslint-disable default-case */
-const AuthSwitch = (stateCurrent, action) => {
-    switch (action.type) {
-        case "Sesion":
-            return {
-                ...stateCurrent,
-                usuEmail: action.data.email,
-                usuId: action.data.uid,
-                token: action.data.token,
-                role: action.data.roles.admin,
-                autenticate: true,
-                loading: false
-            }
-    }
-}
-
-
-export const AuthState = (props) => {
-    const [state, dispatch] = useReducer(AuthSwitch, {
-        autenticate: false,
-        usuEmail: null,
-        usuId: null,
-        token: null,
-        role: null,
-        loading: true
-    })
-   
-    const startSession = (token) => {
-        console.log('imprimir token');
-        // console.log(token);
-        const payload = token.split(".")[1]
-        // console.log(payload);
-        // Desencriptar el payload que esta en base 64
-        const payloadDecrypt = window.atob(payload)
-        const payloadJSON = JSON.parse(payloadDecrypt)
-
-        // Inicicalizar LocalStorage 
-        localStorage.setItem("gdsldfgkl", token)
-
-        dispatch({
-            type: "Sesion",
-            data: {
-                ...payloadJSON,
-                token: token
-            }
-        })
-    }
-
-    const endSession = () => {
-
-    }
-
-    return (
-        <AuthContex.Provider value={{
-            startSession,
-            endSession,
-            usuEmail: state.usuEmail,
-            usuId: state.usuId,
-            role: state.role,
-            loading: state.loading
-        }} >
-            {props.children}
-        </AuthContex.Provider>
-    )
-}
-
-
-
-
-
-
-
-
-
-
-
+// import decode from "jwt-decode";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 
-    
+    // const decoded = decode(token)
+    // console.log("DESCIFRAR", decoded);
 
+    // const sesion = (token) => {
+    //     localStorage.setItem("token", token)
+    // }
 
 
     const [user, setUser] = useState(
-        JSON.parse(localStorage.getItem("user")) || null
+        (localStorage.getItem("user")) || null
     );
 
     useEffect(() => {
@@ -116,7 +40,7 @@ const AuthProvider = ({ children }) => {
         - isLogged --> si el usuario es nulo entonces falso, pero si el usuario existe entonces es verdadero */
         user,
         login() {
-            /*consumiento desde la APi, hacer la consulta verificar que la autentificacion se realizo con exito y luegola informacion se colocaria en lo que retorno el estado ultimo paso lo que esta en seyuSER, LLENAR EL estado con los datos  */
+            /*consumiento desde la APi, hacer la consulta verificar que la autentificacion se realizo con exito y luego la informacion se colocaria en lo que retorno el estado ultimo paso lo que esta en seyuSER, LLENAR EL estado con los datos  */
             setUser({ id: "", username: "" });
         },
         logout() {
