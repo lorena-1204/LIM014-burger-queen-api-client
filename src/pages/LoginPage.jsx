@@ -1,19 +1,19 @@
 import { useState } from "react";
+import { postAuth } from "../services/auth.js";
+import decode from "jwt-decode";
 import useAuth from "../controller/auth/useAuth.jsx";
-// import { useHistory, useLocation } from "react-router-dom";
-import { postAuth } from "../services/auth";
 
-export default function LoginPage(/*{history}*/) {
+
+/********** login  ************/
+export default function LoginPage() {
 
     const auth = useAuth(); /*cONtexto */
-
     // const { startSession, role } = auth
 
     const [formLogin, setformLogin] = useState({
         email: "",
         password: ""
     })
-
     // const [email, setEmail] = useState('');
     // const [password, setPassword] = useState('');
 
@@ -22,23 +22,27 @@ export default function LoginPage(/*{history}*/) {
         //    ( setEmail, setPassword)
         setformLogin
             ({
-                ...formLogin,
-                // email,
-                // password,
+                ...formLogin, /* EMAIL, PASSWORD */
                 [e.target.name]: e.target.value
             })
     }
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        console.log("form", formLogin);
+        console.log("FORM", formLogin);
 
         auth.login();
 
         postAuth(formLogin.email, formLogin.password)
 
             .then(res => {
-                console.log("que eres", res);
+                console.log("QUE ERES", res);
+                console.log("QUE ERES PART II EL REGRESO DEL TOKEN", res.token);
+
+                const decoded = decode(res.token);
+                console.log("DESCIFRAR", decoded);
+
+                localStorage.setItem('token', decoded)
 
                 if (res.statusText === 200) {
 
