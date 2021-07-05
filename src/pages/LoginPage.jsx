@@ -50,7 +50,8 @@ export default function LoginPage() {
                      }
 
                      else if (decoded.roles.admin === false){
-                         console.log("FALSE",decoded.roles.admin);history.push("/rol")
+                         console.log("FALSE",decoded.roles.admin);
+                         history.push("/rol")
                      }
             })   
     }
