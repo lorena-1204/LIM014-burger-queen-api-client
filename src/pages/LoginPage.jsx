@@ -1,21 +1,22 @@
 import { useState } from "react";
-import { postAuth } from "../services/auth.js";
-import decode from "jwt-decode";
-import useAuth from "../controller/auth/useAuth.jsx";
+import { useHistory } from "react-router-dom";
 
+import useAuth from "../controller/auth/useAuth.jsx";
+import decode from "jwt-decode";
+import { postAuth } from "../services/auth.js";
 
 /********** login  ************/
 export default function LoginPage() {
+    
+    const history = useHistory()
 
-    const auth = useAuth(); /*cONtexto */
-    // const { startSession, role } = auth
+     const auth = useAuth(); /*cONtexto */
 
     const [formLogin, setformLogin] = useState({
         email: "",
         password: ""
     })
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
+    // const [email, setEmail] = useState(''); const [password, setPassword] = useState('');
 
     const handleChange = (e) => {
         console.log(`Actualizar la variable de estado`);
@@ -49,28 +50,17 @@ export default function LoginPage() {
                     console.log('postformLogin', res.data.token);
                     console.log('post', res);
 
-                    // startSession(res.data.token)
-                    // console.log("rol",role);
+                    if (decoded.roles.admin) {
+                        console.log("TRUE", decoded.roles.admin);
+                        history.push("/administrador")
+                    }
 
-                    // if (role) {
-                    //     console.log(role);
-                    //     history.push("/administrador")
-                    // }
-
-                    // else if (role === false){
-                    //     console.log(role);
-                    //     history.push("/rol")
-                    // }
+                    else if (decoded.roles.admin === false) {
+                        console.log("FALSE", decoded.roles.admin);
+                        history.push("/rol")
+                    }
                 }
             })
-
-        try {
-            const { token } = await postAuth(formLogin);
-
-            localStorage.setItem('token', token);
-        } catch (error) {
-            document.getElementById('error').textContent = error;
-        }
     }
 
     return (
