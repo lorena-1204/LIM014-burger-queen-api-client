@@ -14,8 +14,7 @@ export default function LoginPage() {
         email: "",
         password: ""
     })
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
+    // const [email, setEmail] = useState('');   const [password, setPassword] = useState('');
 
     const handleChange = (e) => {
         console.log(`Actualizar la variable de estado`);
@@ -32,8 +31,8 @@ export default function LoginPage() {
         console.log("FORM", formLogin);
 
         postAuth(formLogin.email, formLogin.password)
-
             .then(res => {
+                // console.log("lll", postAuth);
 
                 console.log("QUE ERES", res);
                 console.log("QUE ERES PART II EL REGRESO DEL TOKEN", res.token);
@@ -42,38 +41,19 @@ export default function LoginPage() {
                 console.log("DESCIFRAR", decoded);
 
                 localStorage.setItem('token',decoded)
-                
-                //  if (res.statusText === 200){
 
-                //      console.log('postAuth',res.data.token);
-                //      console.log('post', res);
+                     if (decoded.roles.admin) {
+                         console.log("TRUE",decoded.roles.admin);
+                         history.push("/administrador")
+                     }
 
-                //     // startSession(res.data.token)
-                //     // console.log("rol",role);
-
-                //     //  if (role) {
-                //     //     console.log(role);
-                //     //      history.push("/administrador")
-                //     //  }
-
-                //     //  else if (role === false){
-                //     //  console.log(role);
-                //     //  history.push("/rol")
-                //     //  }
-                // }
-
+                     else if (decoded.roles.admin === false){
+                         console.log("FALSE",decoded.roles.admin);
+                     history.push("/rol")
+                     }
             })
-
-        // try {
-        //     const { token } = await postAuth(login);
-
-        //     localStorage.setItem('token', token);
-        // } catch (error) {
-        //     document.getElementById('error').textContent = error;
-        // }
-
+           
     }
-    
 
     return (
         <section className="page-login">

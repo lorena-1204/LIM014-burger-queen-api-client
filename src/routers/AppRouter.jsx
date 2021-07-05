@@ -22,6 +22,9 @@ function AppRouter() {
              
                 <Route path = "/administrador" component={AdministradorRouter} />
 
+                {/* <PrivateRoute path="/administrador" component={AdministradorRouter} /> */}
+
+
                 <Route path = "/rol" component={RolRouter} />
              
                 <Route path ="/404" component={NotFoundPage} />
