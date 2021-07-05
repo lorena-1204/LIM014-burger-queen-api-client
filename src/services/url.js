@@ -10,3 +10,16 @@ export {
 
 // `${urlApi}/products`
 // `${urlApi}/auth`
+
+// {
+//     "email": "admin@localhost.com",
+//         "password": "QWERTY12345678"
+// }
+
+// {
+//     "email": "milumon@outlook.com",
+//         "password": "santaclaus",
+//             "roles" : {
+//         "admin": false
+//     }
+// }
