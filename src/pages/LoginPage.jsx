@@ -74,7 +74,6 @@ export default function LoginPage() {
                             name="email"
                             placeholder='Usuario'
                             onChange={handleChange}
-                            // value={email.email}
                             value={formLogin.email}
                         />
                         <input className="input-default"
@@ -82,7 +81,6 @@ export default function LoginPage() {
                             name="password"
                             placeholder='Password'
                             onChange={handleChange}
-                            // value={password.password}
                             value={formLogin.password}
                         />
 
