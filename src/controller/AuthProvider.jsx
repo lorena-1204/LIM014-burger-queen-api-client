@@ -3,6 +3,13 @@ import { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
+// export const isAuthenticated = (token) => {
+//     const decoded = decode(token);
+//     console.log("DESCIFRAR", decoded);
+
+//     localStorage.setItem('token', decoded)
+// }
+
 const AuthProvider = ({ children }) => {
 
     // const decoded = decode(token)

@@ -3,6 +3,7 @@ import { postAuth } from "../services/auth";
 
 import decode from "jwt-decode";
 import { useHistory } from "react-router-dom";
+// import { isAuthenticated } from "../controller/AuthProvider";
 
 /********** login  ************/
 export default function LoginPage() {
@@ -41,6 +42,7 @@ export default function LoginPage() {
                 console.log("DESCIFRAR", decoded);
 
                 localStorage.setItem('token',decoded)
+                // const decoded = isAuthenticated(res.data.token)
 
                      if (decoded.roles.admin) {
                          console.log("TRUE",decoded.roles.admin);
@@ -48,11 +50,9 @@ export default function LoginPage() {
                      }
 
                      else if (decoded.roles.admin === false){
-                         console.log("FALSE",decoded.roles.admin);
-                     history.push("/rol")
+                         console.log("FALSE",decoded.roles.admin);history.push("/rol")
                      }
-            })
-           
+            })   
     }
 
     return (
