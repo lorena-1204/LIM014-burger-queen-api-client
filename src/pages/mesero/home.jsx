@@ -9,10 +9,14 @@ export default function Home() {
     const [products, setProducts] = useState()
 
     // useEffect, es un hook de react que permite encargarnos del ciclo de vida de react,se le va decir  no trnga dependecias al estar el array vacio y se ejecuta al iniciar la aplicacion por primera y unica vez
+    
     useEffect(() => {
         getProducts(`${urlApi}/products`
         ).then(res => {
-            setProducts(res.products)
+            setProducts(res)
+            // setProducts(res.products)
+            console.log("a",res);
+            // console.log("b", res.products);
         })
     }, [])
      

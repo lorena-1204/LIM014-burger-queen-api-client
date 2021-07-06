@@ -32,14 +32,17 @@ export default function LoginPage() {
 
         postAuth(formLogin.email, formLogin.password)
             .then(res => {
+                // console.log("lll", postAuth);
 
                 console.log("QUE ERES", res);
                 console.log("QUE ERES PART II EL REGRESO DEL TOKEN", res.token);
-
+                
+                localStorage.setItem('token', res.token)
+                
                 const decoded = decode(res.token);
                 console.log("DESCIFRAR", decoded);
 
-                localStorage.setItem('token', decoded)
+                
 
                 if (decoded.roles.admin) {
                     console.log("TRUE", decoded.roles.admin);
@@ -99,6 +102,7 @@ export default function LoginPage() {
         </section>
     )
 }
+
 // import { useHistory, useLocation } from 'react-router-dom';
 // import useAuth from '../controller/auth/useAuth';
 
