@@ -1,48 +1,28 @@
+import React from 'react';
 import {
     BrowserRouter as Router,
     Redirect,
-    Route,
     Switch,
+    Route,
 } from "react-router-dom";
 
-import Navbar from "../components/Navbar";
-import PublicRoute from "./PublicRoute";
-import PrivateRoute from "./PrivateRoute";
-import LoginPage from "../pages/LoginPage";
-import NotFoundPage from "../pages/NotFoundPage";
-import MeseroRouter from "./MeseroRouter";
-import CocinaRouter from "./CocinaRouter";
-import AdministradorRouter from "./AdminRouter";
+import Navbar from '../components/Navbar';
+import NotFoundPage from '../pages/NotFoundPage';
 
-/* Approuter-> se va a encargar de renderizar los componentes de una pagina de acuerdo a la url que solicite el usuario
-   Route ->llamar a los componentes y se define las rutas de la aplicación.
-    - /->para mostrar ruta raíz
-    - Path -> se declara la ruta.
-    - Switch -> Contenido dinamico, sirve para que se cargue solo una ruta a la vez.Se declara de lo más especifico a lo más general o se trabaja con:
-    - exact -> para indicar q ruta va.
-    * accede a todas las rutas 
-    - Navbar, menú para que se acceda entre rutas 
- */
+import LoginPage from '../pages/LoginPage';
+import AdministradorRouter from './Roles/AdminRouter';
+import RolRouter from './Roles/RolesRouter';
 
 function AppRouter() {
     return (
         <Router>
             <Navbar />
             <Switch>
-                <PublicRoute exact path="/" component={LoginPage} />
+                <Route exact path="/" component={LoginPage} />
 
-                <PrivateRoute path="/mesero" component={MeseroRouter} />
-                <PrivateRoute path="/cocina" component={CocinaRouter} />
+                <Route path="/administrador" component={AdministradorRouter} />
 
-                <PrivateRoute path="/administrador" component={AdministradorRouter} />
-
-                {/* <Route path="/administrador">
-                    <Administrador/>
-                </Route> */}
-                <Route exact path="/signin">
-                    <Redirect to="/" />
-                </Route>
-                {/* ⬆ al ir a una routa se redireccione al login - ELIMINAR*/}
+                <Route path="/rol" component={RolRouter} />
 
                 <Route path="/404" component={NotFoundPage} />
                 <Route path="*">
@@ -54,3 +34,57 @@ function AppRouter() {
 }
 
 export default AppRouter;
+
+// import {
+//     BrowserRouter as Router,
+//     Redirect,
+//     Route,
+//     Switch,
+// } from "react-router-dom";
+
+// import Navbar from "../components/Navbar";
+// import PublicRoute from "./PublicRoute";
+// import PrivateRoute from "./PrivateRoute";
+// import LoginPage from "../pages/LoginPage";
+// import NotFoundPage from "../pages/NotFoundPage";
+// import MeseroRouter from "./MeseroRouter";
+// import CocinaRouter from "./CocinaRouter";
+// import AdministradorRouter from "./AdminRouter";
+
+// /* Approuter-> se va a encargar de renderizar los componentes de una pagina de acuerdo a la url que solicite el usuario
+//    Route ->llamar a los componentes y se define las rutas de la aplicación.
+//     - /->para mostrar ruta raíz
+//     - Path -> se declara la ruta.
+//     - Switch -> Contenido dinamico, sirve para que se cargue solo una ruta a la vez.Se declara de lo más especifico a lo más general o se trabaja con:
+//     - exact -> para indicar q ruta va.
+//     * accede a todas las rutas 
+//     - Navbar, menú para que se acceda entre rutas 
+//  */
+
+// function AppRouter() {
+//     return (
+//         <Router>
+//             <Navbar />
+//             <Switch>
+//                 <PublicRoute exact path="/" component={LoginPage} />
+
+//                 <PrivateRoute path="/mesero" component={MeseroRouter} />
+//                 <PrivateRoute path="/cocina" component={CocinaRouter} />
+
+//                 <PrivateRoute path="/administrador" component={AdministradorRouter} />
+
+//                 <Route exact path="/signin">
+//                     <Redirect to="/" />
+//                 </Route>
+//                 {/* ⬆ al ir a una routa se redireccione al login - ELIMINAR*/}
+
+//                 <Route path="/404" component={NotFoundPage} />
+//                 <Route path="*">
+//                     <Redirect to="/404" />
+//                 </Route>
+//             </Switch>
+//         </Router>
+//     );
+// }
+
+// export default AppRouter;
