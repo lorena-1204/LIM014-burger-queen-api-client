@@ -1,0 +1,20 @@
+.input-default {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    margin: .8rem 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;   
+    background-color: $color-input; 
+    font-family: $font-primary; 
+}  
+
+.button-default {
+   @include Btn;
+   background-color: $color-secondary;
+ 
+
+    &:hover {
+        background-color: $color-secondary-light; 
+    }
+}

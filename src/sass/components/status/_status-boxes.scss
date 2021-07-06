@@ -1,0 +1,35 @@
+.page-status {
+    @include meseroBackground 
+ }; 
+ .left-box-readyOrders{
+    @include columnsMesero;
+    background-color: $color-box-green;
+    color: $white;
+    width: 40%;
+    
+ }
+ .right-box-inProcess{
+    @include columnsMesero;  
+    background-color: $color-box-red;
+    width: 40%;
+    color: $white;
+    align-items: center;
+ }
+.btn-order-delivered{
+    @include Btn;
+    background-color: $color-secondary;
+}
+.box-title{
+    text-align: center;
+    padding-bottom: 1.5rem;
+    font-size:  2rem;
+}
+.left-box-readyOrders__order{
+    @include small-box;
+    background-color:$color-secondary-dark;
+}
+.right-box-inProcess__order{
+    @include small-box;
+    background-color:$color-primary-dark;
+}
+

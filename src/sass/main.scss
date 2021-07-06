@@ -1,0 +1,24 @@
+/*para importar las carpetas necesitamos primero colocar un @importy dar la ruta ej @import"./abstracts/variables", la primera importancion siempre tiene que ser variables y fuentes , sino no se compila*/
+//abstracts
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+//base
+@import "base/base";
+@import "base/typography";
+@import "base/inputs";
+@import "base/select-categories";
+
+//pages
+@import "pages/login"; 
+@import "pages/home"; 
+
+//components
+@import "components/login/login-form"; 
+@import "components/home/home-box";
+@import "components/home/home-products";
+@import "components/status/status-boxes";
+@import "components/historial/historial-orders";
+
+//layout
+@import "layout/navigation"; 

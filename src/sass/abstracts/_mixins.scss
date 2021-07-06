@@ -1,0 +1,48 @@
+@mixin meseroBackground {
+background-color: $color-background;
+display: flex;  
+justify-content: space-around; 
+padding-top: 4rem;
+padding-bottom:4rem;
+// height: 100%;
+
+}
+@mixin columnsMesero{
+    flex-direction:  column;
+    text-align:-webkit-center;
+    width: 50%;
+    height: 100%;
+    padding:0rem 2rem;
+    border-radius: 1rem;
+    color: $white;
+}
+@mixin Btn{
+    border: none;
+    color: white;
+    padding: 1.5rem 3.2rem; 
+    text-align: center;
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 1.6rem; 
+    border-radius: 2rem;
+    font-family: $font-primary;  
+    cursor: pointer;  
+    transition: all .3s;
+    width:min-content;
+}
+@mixin small-box{
+    border: none;
+    color: white;
+    padding: 1.5rem 3.2rem; 
+    text-align: center;
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 1.6rem; 
+    border-radius: 1rem;
+    font-family: $font-primary;  
+    cursor: pointer;  
+    transition: all .3s;
+    width:100%;
+}
+   
+

@@ -1,0 +1,33 @@
+/*se llama a la variable a trvés del simbolo del dolar y se da los valores primarios, secundarios y otros colores, el guión bajo ( _ )es un partials, que es una configuración de sass (modulos)*/
+
+//Colors
+$color-primary: #E08E2F;   
+$color-primary-light: #FCAC04;
+$color-primary-dark: #B95900;            
+$color-secondary: #299749;    
+$color-secondary-light: #2eb956; 
+$color-secondary-dark: #033913;
+$color-tertiary: #CA230A; 
+$color-background: #4C2414;
+$color-input: #EFE3D0;
+$color-placeholder: #909090; 
+$color-box: #985507;
+
+$color-box-green: #12712D;
+$color-box-red: #941F0E;
+
+$white:snow;
+$dark:#333;
+
+//Fonts 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:regular,bold,italic&subset=latin,latin-ext');
+$font-primary: "Montserrat", sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Qwigley:regular,bold,italic&subset=latin,latin-ext');
+$font-secondary: "Qwigley", sans-serif;
+
+//Breakpoints
+$bp-largest: 1200px;
+$bp-large: 1000px;
+$bp-medium: 800px;
+$bp-small: 600px; 

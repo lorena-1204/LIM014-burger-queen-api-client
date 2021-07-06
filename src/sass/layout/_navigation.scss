@@ -1,0 +1,62 @@
+/*sass: todo lo que sea un ul y luego un li, se ve afectado - se agrego*/
+ul{
+    list-style:none;
+   
+  li{
+    display:inline-block;
+    padding: 1.5rem;
+    // &:hover{
+    //     background-color:darken($color:$color-secondary,$amount:10);
+    //     box-shadow: 3px 3px 3px 3px $dark;
+    // }
+    Link{
+        text-decoration: none;
+        font-size: 2rem;
+        color:$color-input;
+        &:hover{
+        text-decoration: underline;
+        background-color:lighten($color:$color-secondary,$amount:10);
+    }
+    }
+  }
+}
+// Link{
+//     display:inline-block;
+// }
+.navigation {
+    background-color: $color-primary;
+    height: 5rem;
+    
+    &__list {
+
+        &__item { 
+            font-size: 1.6rem;
+        }  
+
+.login-form {
+
+    width: 100%;
+    max-width: 50rem;
+    background-color: transparent;
+    margin: 2rem 3rem; 
+    padding: 2rem; 
+    height: min-content;
+
+    &__title { 
+        text-align: center;  
+        margin-bottom: 2rem;
+        font-size: 5.5rem;
+        color: $color-primary;
+        font-family: $font-secondary;
+
+    }
+
+    &__form {
+        display: flex; 
+        flex-direction: column; 
+ 
+        &__input-group { 
+            margin-bottom: 2rem;
+        }
+    }
+}}}

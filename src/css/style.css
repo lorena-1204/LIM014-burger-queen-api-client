@@ -1,0 +1,332 @@
+@charset "UTF-8";
+/*para importar las carpetas necesitamos primero colocar un @importy dar la ruta ej @import"./abstracts/variables", la primera importancion siempre tiene que ser variables y fuentes , sino no se compila*/
+/*se llama a la variable a trvés del simbolo del dolar y se da los valores primarios, secundarios y otros colores, el guión bajo ( _ )es un partials, que es una configuración de sass (modulos)*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,bold,italic&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Qwigley:regular,bold,italic&subset=latin,latin-ext");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  height: 100%;
+  font-size: 62.5%; }
+  @media only screen and (max-width: 1200px) {
+    html {
+      font-size: 50%; } }
+
+body {
+  height: 100%;
+  font-family: "Montserrat", sans-serif; }
+
+.routeDiv {
+  height: 100%; }
+
+#root {
+  height: 100%; }
+
+/*sass: todo lo que sea un ul y luego un li, se ve afectado - se agrego*/
+ul {
+  list-style: none; }
+  ul li {
+    display: inline-block;
+    padding: 10px; }
+
+.input-default {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  margin: .8rem 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #EFE3D0;
+  font-family: "Montserrat", sans-serif; }
+
+.button-default {
+  border: none;
+  color: white;
+  padding: 1.5rem 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 2rem;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all .3s;
+  width: min-content;
+  background-color: #299749; }
+  .button-default:hover {
+    background-color: #2eb956; }
+
+.select-area {
+  display: flex;
+  justify-content: center; }
+
+.select-area__select {
+  background-color: #FCAC04;
+  border: none;
+  color: #fafafa;
+  padding: 1.5rem 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all .3s;
+  min-width: 40rem; }
+
+.page-login {
+  background-color: #4C2414;
+  height: 100vh;
+  /*cambio*/
+  display: flex;
+  justify-content: center;
+  padding-top: 8rem; }
+
+.page-home {
+  background-color: #4C2414;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 4rem;
+  padding-bottom: 4rem; }
+
+.client-name__input-area {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 40rem;
+  background-color: transparent;
+  margin-bottom: 1.5rem;
+  text-align-last: center; }
+
+.left-column {
+  flex-direction: column;
+  text-align: -webkit-center;
+  width: 50%;
+  height: 100%;
+  padding: 0rem 2rem;
+  border-radius: 1rem;
+  color: snow;
+  justify-content: center;
+  align-items: center; }
+
+.right-column {
+  flex-direction: column;
+  text-align: -webkit-center;
+  width: 50%;
+  height: 100%;
+  padding: 0rem 2rem;
+  border-radius: 1rem;
+  color: snow; }
+
+.login-form {
+  width: 100%;
+  max-width: 50rem;
+  background-color: transparent;
+  margin: 2rem 3rem;
+  padding: 2rem;
+  height: min-content; }
+  .login-form__title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 5.5rem;
+    color: #E08E2F;
+    font-family: "Qwigley", sans-serif; }
+  .login-form__form {
+    display: flex;
+    flex-direction: column;
+    text-align-last: center; }
+    .login-form__form__input-group {
+      margin-bottom: 2rem; }
+
+.right-column__box-area {
+  height: 100%;
+  background-color: #985507;
+  color: snow;
+  height: 100%;
+  width: 40%;
+  align-content: center;
+  border-radius: 1rem;
+  padding: 2rem; }
+
+.right-column__box-area__header {
+  background-color: #FCAC04;
+  align-content: center;
+  border-radius: 1rem;
+  color: #333;
+  opacity: none;
+  margin-top: 2rem;
+  padding: 1rem; }
+
+.page-home__products {
+  padding-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  background-color: #985507;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 3rem; }
+  .page-home__products__container {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem; }
+    .page-home__products__container img {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 1rem;
+      object-fit: cover; }
+
+.page-status {
+  background-color: #4C2414;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 4rem;
+  padding-bottom: 4rem; }
+
+.left-box-readyOrders {
+  flex-direction: column;
+  text-align: -webkit-center;
+  width: 50%;
+  height: 100%;
+  padding: 0rem 2rem;
+  border-radius: 1rem;
+  color: snow;
+  background-color: #12712D;
+  color: snow;
+  width: 40%; }
+
+.right-box-inProcess {
+  flex-direction: column;
+  text-align: -webkit-center;
+  width: 50%;
+  height: 100%;
+  padding: 0rem 2rem;
+  border-radius: 1rem;
+  color: snow;
+  background-color: #941F0E;
+  width: 40%;
+  color: snow;
+  align-items: center; }
+
+.btn-order-delivered {
+  border: none;
+  color: white;
+  padding: 1.5rem 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 2rem;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all .3s;
+  width: min-content;
+  background-color: #299749; }
+
+.box-title {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  font-size: 2rem; }
+
+.left-box-readyOrders__order {
+  border: none;
+  color: white;
+  padding: 1.5rem 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all .3s;
+  width: 100%;
+  background-color: #033913; }
+
+.right-box-inProcess__order {
+  border: none;
+  color: white;
+  padding: 1.5rem 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all .3s;
+  width: 100%;
+  background-color: #B95900; }
+
+.page-historial {
+  background-color: #4C2414;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8rem;
+  padding-left: 10rem;
+  padding-right: 10rem; }
+
+.page-historial__title {
+  text-align: center;
+  padding-bottom: 2rem; }
+
+.page-historial__horizontal-boxes {
+  border: none;
+  color: white;
+  padding: 1.5rem 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all .3s;
+  width: 100%;
+  background-color: #985507;
+  align-items: center; }
+
+/*sass: todo lo que sea un ul y luego un li, se ve afectado - se agrego*/
+ul {
+  list-style: none; }
+  ul li {
+    display: inline-block;
+    padding: 1.5rem; }
+    ul li Link {
+      text-decoration: none;
+      font-size: 2rem;
+      color: #EFE3D0; }
+      ul li Link:hover {
+        text-decoration: underline;
+        background-color: #34bf5c; }
+
+.navigation {
+  background-color: #E08E2F;
+  height: 5rem; }
+  .navigation__list__item {
+    font-size: 1.6rem; }
+  .navigation__list .login-form {
+    width: 100%;
+    max-width: 50rem;
+    background-color: transparent;
+    margin: 2rem 3rem;
+    padding: 2rem;
+    height: min-content; }
+    .navigation__list .login-form__title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 5.5rem;
+      color: #E08E2F;
+      font-family: "Qwigley", sans-serif; }
+    .navigation__list .login-form__form {
+      display: flex;
+      flex-direction: column; }
+      .navigation__list .login-form__form__input-group {
+        margin-bottom: 2rem; }

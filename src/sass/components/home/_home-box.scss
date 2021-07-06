@@ -1,0 +1,21 @@
+.right-column__box-area{
+    height: 100%;
+    background-color: $color-box;
+    color: $white;
+    height: 100%;
+    width: 40%;
+    align-content: center;
+    border-radius: 1rem;
+    padding:2rem;
+}
+
+.right-column__box-area__header{
+    background-color:$color-primary-light;
+    align-content: center;
+    border-radius: 1rem;
+    color: $dark;
+    opacity: none;
+    margin-top: 2rem;
+    padding: 1rem;
+
+}
