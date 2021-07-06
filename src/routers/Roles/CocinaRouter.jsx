@@ -6,23 +6,27 @@ import {
     Redirect,
     useRouteMatch
 } from "react-router-dom";
+import HistorialCocina from "../../pages/cocina/historialCocina";
+import Proceso from "../../pages/cocina/proceso";
+
 // import PrivateRoute from "./PrivateRoute";
 
-import Proceso from "../pages/cocina/proceso";
-import HistorialCocina from "../pages/cocina/historialCocina";
+
 
 export default function CocinaRouter() {
     const { url } = useRouteMatch();
+    // {/* url=cocina */ }
     return (
-        <div >
+        < >
             <ul>
                 <li>
-                    <Link to="/cocina">Proceso</Link>
+                    <Link to="/rol/cocina">Proceso</Link>
                 </li>
                 <li>
-                    <Link to="/cocina/historial">Historial</Link>
+                    <Link to="/rol/cocina/historial">Historial</Link>
                 </li>
             </ul>
+
             <Switch>
                 <Route exact path={`${url}`} component={Proceso} />
                 <Route exact path={`${url}/historial`} component={HistorialCocina} />
@@ -30,6 +34,6 @@ export default function CocinaRouter() {
                     <Redirect to="/404" />
                 </Route>
             </Switch>
-        </div>
+        </>
     );
 }

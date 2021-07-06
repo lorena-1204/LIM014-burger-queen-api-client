@@ -32,7 +32,6 @@ export default function LoginPage() {
 
         postAuth(formLogin.email, formLogin.password)
             .then(res => {
-                // console.log("lll", postAuth);
 
                 console.log("QUE ERES", res);
                 console.log("QUE ERES PART II EL REGRESO DEL TOKEN", res.token);

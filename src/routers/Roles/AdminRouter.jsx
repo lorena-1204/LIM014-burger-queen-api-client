@@ -4,17 +4,15 @@ import {
     Switch,
     Route,
     Redirect,
-    useRouteMatch
+    // useRouteMatch
 } from "react-router-dom";
 
-import Menu from "../pages/administrador/menu";
-import Trabajadores from "../pages/administrador/trabajadores";
+import Menu from "../../pages/administrador/menu";
+import Trabajadores from "../../pages/administrador/trabajadores";
 
 export default function AdministradorRouter() {
-    const { url } = useRouteMatch();
-
     return (
-        <div>
+        <>
             <ul>
                 <li>
                     <Link to="/administrador">Menu</Link>
@@ -24,12 +22,12 @@ export default function AdministradorRouter() {
                 </li>
             </ul>
             <Switch>
-                <Route exact path={`${url}`} component={Menu} />
-                <Route exact path={`${url}/trabajadores`} component={Trabajadores} />
+                <Route exact path="/administrador" component={Menu} />
+                <Route exact path="/administrador/trabajadores" component={Trabajadores} />
                 <Route path="*">
                     <Redirect to="/404" />
                 </Route>
             </Switch>
-        </div>
-    );
+        </>
+    )
 }
