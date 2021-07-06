@@ -28,7 +28,11 @@ const AuthProvider = ({ children }) => {
     }, [user]);
 
     const contextValue = {
-        /*Si se consumiera desde la API 1.se tendria que hacer la consulta, 2. verificar que la autentificación se realizo con exito. 3.la informacion del usuario que retorna es la q se colocaria en este estado 4. lo q se esta haciendo: llenar el estado con el contenido del usuario , se coloca en el app.js 
+        /*Si se consumiera desde la API 
+        1.se tendria que hacer la consulta, 
+        2. verificar que la autentificación se realizo con exito. 
+        3.la informacion del usuario que retorna es la q se colocaria en este estado 
+        4. lo q se esta haciendo: llenar el estado con el contenido del usuario , se coloca en el app.js 
         - isLogged --> si el usuario es nulo entonces falso, pero si el usuario existe entonces es verdadero */
         user,
         login() {

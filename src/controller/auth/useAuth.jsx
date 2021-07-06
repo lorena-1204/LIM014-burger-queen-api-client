@@ -5,6 +5,11 @@ par consumir el contexto se llama al useContext y se pasa el contexto que se qui
 - AuthProvider--> dotar a la aplicación como tal de un proveer, lo que se consume es el contexto
 - useContext --> es un hook, cuando lo utilizamos devuelve los valores que se trae del contexto( en nuestro caso el contextValue, el objet q trae el user, el login y logout )   */
 
+// export default function useAuth() {
+//     return useContext(AuthContext);
+// }
+
 export default function useAuth() {
-    return useContext(AuthContext);
+    const contextValue = useContext(AuthContext);
+    return contextValue;
 }
