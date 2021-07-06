@@ -1,0 +1,23 @@
+.page-home {
+   @include meseroBackground 
+    //align-items: center;
+}; 
+.client-name__input-area{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 40rem;
+    background-color: transparent;
+    margin-bottom: 1.5rem; 
+    text-align-last: center;
+    
+}
+.left-column{
+   @include columnsMesero;
+   justify-content: center;
+   align-items: center;
+}
+.right-column{
+    @include columnsMesero
+}
