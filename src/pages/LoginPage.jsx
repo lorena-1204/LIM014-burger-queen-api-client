@@ -3,7 +3,6 @@ import { postAuth } from "../services/auth";
 
 import decode from "jwt-decode";
 import { useHistory } from "react-router-dom";
-// import { isAuthenticated } from "../controller/AuthProvider";
 
 /********** login  ************/
 export default function LoginPage() {
@@ -37,23 +36,23 @@ export default function LoginPage() {
 
                 console.log("QUE ERES", res);
                 console.log("QUE ERES PART II EL REGRESO DEL TOKEN", res.token);
-                
+
                 const decoded = decode(res.token);
                 console.log("DESCIFRAR", decoded);
 
-                localStorage.setItem('token',decoded)
-                // const decoded = isAuthenticated(res.data.token)
+                localStorage.setItem('token', decoded)
 
-                     if (decoded.roles.admin) {
-                         console.log("TRUE",decoded.roles.admin);
-                         history.push("/administrador")
-                     }
+                if (decoded.roles.admin) {
+                    console.log("TRUE", decoded.roles.admin);
+                    history.push("/administrador")
+                }
 
-                     else if (decoded.roles.admin === false){
-                         console.log("FALSE",decoded.roles.admin);
-                         history.push("/rol")
-                     }
-            })   
+                else if (decoded.roles.admin === false) {
+                    console.log("FALSE", decoded.roles.admin);
+                    history.push("/rol")
+                }
+            })
+
     }
 
     return (
@@ -74,6 +73,7 @@ export default function LoginPage() {
                             name="email"
                             placeholder='Usuario'
                             onChange={handleChange}
+                            // value={email.email}
                             value={formLogin.email}
                         />
                         <input className="input-default"
@@ -81,6 +81,7 @@ export default function LoginPage() {
                             name="password"
                             placeholder='Password'
                             onChange={handleChange}
+                            // value={password.password}
                             value={formLogin.password}
                         />
 

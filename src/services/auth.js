@@ -3,12 +3,12 @@ import { urlApi } from "./url";
 export const postAuth = async (email, password) => {
     const response = await fetch(`${urlApi}/auth`, {
         method: 'POST',
-        body: 
+        body:
             JSON.stringify
-            ({
-                email,
-                password
-            }),
+                ({
+                    email,
+                    password
+                }),
         headers: { 'Content-Type': 'application/json' }
     })
     console.log("CUERPO", response);
@@ -16,9 +16,9 @@ export const postAuth = async (email, password) => {
     const dataJSON = await response.json();
 
     // return dataJSON
-    if(response.status === 200){
+    if (response.status === 200) {
         return dataJSON;
-    } else if (response.status === 400){
+    } else if (response.status === 400) {
         // throw new Error('error de acceso');
         alert('Error de acceso')
     }
