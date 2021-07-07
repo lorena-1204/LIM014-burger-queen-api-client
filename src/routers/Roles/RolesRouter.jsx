@@ -15,19 +15,19 @@ export default function RolRouter() {
 
     return (
         <div>
-            <ul>
+            <ul className="page">
                 {/* <li>
                     <Link exact to={`${url}`}>
                        
                     </Link>
                 </li> */}
                 <li>
-                    <Link to={`${url}/mesero`} >
+                    <Link className="page-link" to={`${url}/mesero`} >
                         Mesero
                     </Link>
                 </li>
                 <li>
-                    <Link to={`${url}/cocina`} >
+                    <Link className="page-link" to={`${url}/cocina`} >
                         Cocina
                     </Link>
                 </li>
@@ -38,7 +38,6 @@ export default function RolRouter() {
                 <Route path="/rol/mesero" component={MeseroRouter} />
 
                 <Route path="/rol/cocina" component={CocinaRouter} />
-
 
                 <Route path="*">
                     <Redirect to="/404" />

@@ -1,8 +1,8 @@
 export default function Menu() {
     return (
         <div>
-            <section>
-                <h2>Añadir un nuevo producto</h2>
+            <section className="page-admin">
+                <h2 className="page-admin_text">Añadir un nuevo producto</h2>
                 <form action="">
                     <div>
                         <div>
@@ -16,20 +16,31 @@ export default function Menu() {
                     <div>
                         <div>
                             <label htmlFor="">Producto</label>
-                            <input type="text" placeholder="Item" />
+                            <input 
+                            className="input-default"
+                            type="text" 
+                            placeholder="Item" />
                         </div>
                         <div>
                             <label htmlFor="">Imagen</label>
-                            <input type="text" placeholder="ItemProductImg" />
+                            <input
+                            className="input-default"
+                            type="text" 
+                            placeholder="ItemProductImg" />
                         </div>
                     </div>
                     <div>
                         <div>
                             <label htmlFor="">Precio</label>
-                            <input type="number" />
+                            <input
+                            className="input-default"
+                            type="number" />
                         </div>
                         <div>
-                            <button>Añadir</button>
+                            <button
+                                className="button-default">
+                                    Añadir
+                            </button>
                         </div>
                     </div>
                 </form>

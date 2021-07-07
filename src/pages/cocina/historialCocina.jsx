@@ -1,8 +1,8 @@
 export default function HistorialCocina() {
     return (
-        <div>
-            <h1>historial</h1>
-            <p>(っ＾▿＾)۶🍸🌟🍺٩(˘◡˘ )</p>
+        <div className="page-admin">
+            <h1 className="page-admin_text" >historial</h1>
+            <p className="page-admin_text">(っ＾▿＾)۶🍸🌟🍺٩(˘◡˘ )</p>
         </div>
     )
 }

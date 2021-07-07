@@ -1,13 +1,14 @@
 export default function Trabajadores() {
     return (
         <div>
-            <section>
-                <h2>Añadir un nuevo producto</h2>
+            <section className="page-admin">
+                <h2 className="page-admin_text">Añadir trabajadores</h2>
                 <form action="">
                     <div>
-                        <div>
+                        <div >
                             <label htmlFor="">Usuario</label>
                             <input
+                                className="input-default"
                                 type="email"
                                 name="email"
                                 placeholder="Email" />
@@ -15,6 +16,7 @@ export default function Trabajadores() {
                         <div>
                             <label htmlFor="">Contraseña</label>
                             <input
+                                className="input-default"  
                                 type="password"
                                 name="password"
                                 placeholder="**********" />
@@ -32,7 +34,10 @@ export default function Trabajadores() {
                     </div>
                     <div>
                         <div>
-                            <button>Añadir</button>
+                            <button
+                            className="button-default">
+                                    Añadir
+                            </button>
                         </div>
                     </div>
                 </form>

@@ -13,8 +13,8 @@ import LoginPage from '../pages/LoginPage';
 import AdministradorRouter from './Roles/AdminRouter';
 import RolRouter from './Roles/RolesRouter';
 
-import PublicRoute from "./PublicRoute";
-import PrivateRoute from "./PrivateRoute";
+// import PublicRoute from "./PublicRoute";
+// import PrivateRoute from "./PrivateRoute";
 
 function AppRouter() {
     return (

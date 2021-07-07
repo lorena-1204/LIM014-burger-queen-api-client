@@ -4,11 +4,8 @@ import { getProducts } from "../../services/products";
 import { urlApi } from "../../Url/url";
 
 export default function Home() {
-    // obtener los datos de la respuesta y alcenarlo en el estado de la aplicacion setProducts modifca la variable se usa el hook de react useState cuando se obtengan los resultados se va guardar en la variable products utilizando setProducts
 
     const [products, setProducts] = useState()
-
-    // useEffect, es un hook de react que permite encargarnos del ciclo de vida de react,se le va decir  no trnga dependecias al estar el array vacio y se ejecuta al iniciar la aplicacion por primera y unica vez
     
     useEffect(() => {
         getProducts(`${urlApi}/products`
@@ -26,8 +23,14 @@ export default function Home() {
             <div className="left-column"> 
                 <div className="client-name__input-area">
                     <div className="login-form__form__input-group">
-                    <input className="input-default"  type="name" placeholder='Nombre del cliente'></input>
-                    <input className="input-default"  type="number" placeholder='Numero de mesa'></input>
+                    <input 
+                    className="input-default"  
+                    type="name" 
+                    placeholder='Nombre del cliente'></input>
+                    <input 
+                    className="input-default" 
+                    type="number" 
+                    placeholder='Numero de mesa'></input>
                     </div>
                         <div><button className="button-default">Guardar</button></div>
                     
@@ -67,9 +70,7 @@ export default function Home() {
 
                     
                 </div>
-            </div>
-           
-            
+            </div>  
             
         </div>
     )

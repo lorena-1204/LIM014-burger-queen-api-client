@@ -1,14 +1,39 @@
-import { createContext, useState,
-    //  useEffect 
-    } from "react";
+// import jwtDecode from "jwt-decode";
+import { 
+    createContext, 
+    useState,
+    useEffect 
+} from "react";
+// import { postAuth } from "../services/auth";
 
 export const AuthContext = createContext();
 
+
+
+
+export const isAuthenticated = () => {
+    
+    
+};
+
+
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
+    
+    // const [user, setUser] = useState(null)
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem("user")) || null
+    );
+
+    useEffect(() => {
+        try {
+            localStorage.setItem("user", JSON.stringify(user));
+        } catch (error) {
+            localStorage.removeItem("user");
+            console.log(error);
+        }
+    }, [user]);
 
     const contextValue = {
-
         user,
         login() {
             setUser({ id: "", username: "" });
@@ -29,13 +54,7 @@ const AuthProvider = ({ children }) => {
 export default AuthProvider;
 
 
-
-
-
-
-
-
-// const post = postAuth(user.email, user.password)
+// const post = postAuth(formLogin.email, formLogin.password)
 // const Auth = post.then(res => {
 
 //     const decoded = decode(res.token);
@@ -46,6 +65,9 @@ export default AuthProvider;
 //     return decoded
 // })
 
+
+
+
 // const AuthProvider = ({ children }) => {
 
 //     // const [user, setUser] = useState(null);
@@ -55,10 +77,6 @@ export default AuthProvider;
 //         email: "",
 //         password: ""
 //     })
-
-    
-
-//     console.log("CUEO", Auth);
 
 
 //     useEffect(() => {
@@ -144,7 +162,7 @@ export default AuthProvider;
 //         2. verificar que la autentificación se realizo con exito. 
 //         3.la informacion del usuario que retorna es la q se colocaria en este estado 
 //         4. lo q se esta haciendo: llenar el estado con el contenido del usuario , se coloca en el app.js 
-//         - isLogged --> si el usuario es nulo entonces falso, pero si el usuario existe entonces es verdadero */
+
 //         user,
 //         login() {
 //             /*consumiento desde la APi, hacer la consulta verificar que la autentificacion se realizo con exito y luegola informacion se colocaria en lo que retorno el estado ultimo paso lo que esta en seyuSER, LLENAR EL estado con los datos  */

@@ -125,6 +125,14 @@ ul {
   border-radius: 1rem;
   color: snow; }
 
+.page-admin {
+  background-color: #4C2414;
+  height: 100vh;
+  /*cambio*/ }
+
+.page-admin_text {
+  color: snow; }
+
 .login-form {
   width: 100%;
   max-width: 50rem;
@@ -330,3 +338,11 @@ ul {
       flex-direction: column; }
       .navigation__list .login-form__form__input-group {
         margin-bottom: 2rem; }
+
+.page {
+  background-color: #4C2414;
+  width: 100%; }
+
+.page-link {
+  color: snow;
+  font-size: 1.7rem; }
